@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- gestion des employés -->
+    <record model="ir.ui.view" id="hr_payslip_run_inh_form_view">
+        <field name="name">hr.payslip.run.form_inherit</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_validate']" position="before">
+                <button name="submit_to_validation" type="object" string="Soumettre pour validation" states="draft" class="oe_highlight"/>
+                <button name="action_rejected" type="object" string="Rejeter" states="in_progress" class="oe_highlight" groups="hr.group_hr_manager"/>
+                <button name="action_close" type="object" string="Clôturer" states="in_progress" class="oe_highlight"
+                 groups="hr.group_hr_manager"/>
+            </xpath>
+<!--            <xpath expr="//button[@name='action_close']" position="replace">-->
+<!--                <button name="action_close" type="object" string="Clôturer" states="in_progress" class="oe_highlight"-->
+<!--                 groups="hr.group_hr_manager"/>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+</odoo>

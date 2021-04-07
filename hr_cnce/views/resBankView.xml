@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- gestion des banques -->
+		<record model="ir.ui.view" id="res_bank_form_view">
+			<field name="name">res.bank.form</field>
+			<field name="model">res.bank</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+                        <field name="name" />
+                        <field name="street" />
+                        <field name="street2" />
+                        <field name="zip" />
+                        <field name="city" />
+                        <field name="state" />
+                        <field name="country" />
+                        <field name="email" />
+                        <field name="phone" />
+                        <field name="active" />
+                        <field name="bic" />
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="res_bank_tree_view">
+			<field name="name">res.bank.tree</field>
+			<field name="model">res.bank</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+                        <field name="street" />
+                        <field name="street2" />
+                        <field name="zip" />
+                        <field name="city" />
+                        <field name="state" />
+                        <field name="country" />
+                        <field name="email" />
+                        <field name="phone" />
+                        <field name="active" />
+                        <field name="bic" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_res_bank_view">
+			<field name="name">Les banques</field>
+			<field name="res_model">res.bank</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="res_bank_menu_id" name="Les banques" parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager" action="action_res_bank_view"
+				  sequence="199"/>
+
+    </data>
+</odoo>

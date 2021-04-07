@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_cgrae" model="ir.actions.report">
+        <field name="name">Déclaration CGRAE</field>
+        <field name="model">hr.cgrae</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_cgrae.hr_cgrae_report</field>
+        <field name="report_file">hr_cgrae.hr_cgrae_report</field>
+        <field name="print_report_name">object.name</field>
+    </record>
+
+    <record id="hr_cgrae_list" model="ir.actions.report">
+        <field name="name">Liste des contributeurs</field>
+        <field name="model">hr.cgrae</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_cgrae.hr_cgrae_list_report</field>
+        <field name="report_file">hr_cgrae.hr_cgrae_list_report</field>
+        <field name="print_report_name">object.name</field>
+    </record>
+
+</odoo>

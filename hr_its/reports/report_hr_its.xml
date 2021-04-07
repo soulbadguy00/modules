@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_its">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+			<t t-call="web.internal_layout">
+				<div class="page">
+					 <div class="text-center">
+						 <p><h6>DECLARATION DES IMPOTS SUR LES TRAITEMENTS,<br/>SALAIRES, PENSIONS ET RENTES VIAGERES</h6></p>
+						 <p>(Articles 143 et suivants du CGI)</p>
+					 </div>
+					<div>
+						<div>
+							<table style="width:100%;">
+								<tbody>
+									<tr>
+										<td colspan="8">PENSIONS</td>
+									</tr>
+									<tr>
+										<th colspan="2"></th>
+										<th>Montant total versé</th>
+										<th>Effectif</th>
+										<th>Montant exonéré</th>
+										<th>Montant taxable</th>
+										<th>Abattement</th>
+										<th>Revenu net imposable</th>
+									</tr>
+
+									<tr>
+										<td>1</td>
+										<td>Pensions ≤ 300.000 FCFA</td>
+										<td></td>
+										<td></td>
+										<td>0</td>
+										<td>0</td>
+										<td>100%</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Pensions > 300.000 FCFA</td>
+										<td></td>
+										<td></td>
+										<td>0</td>
+										<td>0</td>
+										<td>20%</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td colspan="8">- Un abattement de 300 000 Francs est applicable sur le montant mensuel des pensions de retraite et des rentes viagères imposables</td>
+									</tr>
+									<tr>
+										<td colspan="8">RENTES VIAGERES</td>
+									</tr>
+									<tr>
+										<th colspan="2"></th>
+										<th>Montant total versé</th>
+										<th>Effectif</th>
+										<th>Montant exonéré</th>
+										<th>Montant taxable</th>
+										<th>Abattement</th>
+										<th>Revenu net imposable</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Rentes viagères ≤ 300.000 FCFA</td>
+										<td></td>
+										<td></td>
+										<td>0</td>
+										<td>0</td>
+										<td>100%</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Rentes viagères > 300.000 FCFA</td>
+										<td></td>
+										<td></td>
+										<td>0</td>
+										<td>0</td>
+										<td>20%</td>
+										<td>0</td>
+									</tr>
+
+								</tbody>
+							</table>
+							<table style="width: 100%;">
+								<tbody>
+									<tr>
+										<td colspan="4">TRAITEMENTS, SALAIRES, CONTRIBUTION EMPLOYEUR</td>
+									</tr>
+									<tr>
+										<td>N°</td>
+										<td colspan="2">Revenus bruts</td>
+										<td>Montant brut</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td colspan="2">Rémunérations versées</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td colspan="2">Avantages en nature</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td colspan="2">Autres (à préciser)</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td colspan="2">Montant total brut</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>N°</td>
+										<td>Revenus non imposables</td>
+										<td>ITS</td>
+										<td>Contribution Employeur</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>Montant des salaires (inférieurs au minimum) 3 non déclaré ou non imposé</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td>Indemnités non imposables 4</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>11</td>
+										<td>Montant total brut imposable [(10)=(7)-(8)-(9)]</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>12</td>
+										<td>Revenu net imposable 5 [(11)=(10)*80%]</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>13</td>
+										<td>TOTAL MONTANT NET IMPOSABLE [(12)=(11)+(2)+(3)]</td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div>
+							<div>DETERMINATION DE L’IMPÔT</div>
+							<div>IMPOTS RETENUS AUX SALARIES</div>
+							<div>
+								<table style="width: 100%;">
+									<thead>
+										<tr>
+											<th>N°</th>
+											<th>Nature des impôts</th>
+											<th>Base imposable</th>
+											<th>Taux</th>
+											<th>Montant</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>13</td>
+											<td>Impôt sur traitements, salaires, pensions, rentes viagères (IS)</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>14</td>
+											<td>Contribution Nationale (CN)</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td rowspan="2">15</td>
+											<td>Impôt Général sur le revenu (IGR) – Régime général</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Impôt Général sur le revenu (IGR) – Régime agricole</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>16</td>
+											<td>TOTAL DES RETENUES AUX SALARIES</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</t>
+	</t>
+</template>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_hr_payroll_declaration" name="Déclaration de paie" parent="hr_work_entry_contract.menu_hr_payroll_root"
+        sequence="72" groups="hr.group_hr_manager"/>
+    <menuitem id="menu_hr_payroll_rapport" name="Rapports de paie" parent="hr_work_entry_contract.menu_hr_payroll_root"
+        sequence="71" groups="hr.group_hr_manager"/>
+    <menuitem id="menu_hr_payroll_social" name="Déclarations sociales" parent="menu_hr_payroll_declaration"
+        sequence="9" groups="hr.group_hr_manager" />
+    <menuitem id="menu_hr_payroll_fiscal" name="Déclarations fiscales" parent="menu_hr_payroll_declaration"
+        sequence="10" groups="hr.group_hr_manager" />
+
+    <menuitem id="hr_payroll_ci_raport.hr_declaration_settings_menu" name="Paramètres Déclarations" parent="hr_work_entry_contract.menu_hr_payroll_configuration"
+              groups="hr_payroll.group_hr_payroll_manager" sequence="100"/>
+</odoo>

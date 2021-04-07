@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_hr_its" model="ir.actions.report">
+        <field name="name">Déclaration ITS</field>
+        <field name="model">hr.its</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_its.report_its</field>
+        <field name="report_file">report_its</field>
+    </record>
+</odoo>

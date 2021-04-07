@@ -1,0 +1,970 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_update
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-15 11:19+0000\n"
+"PO-Revision-Date: 2021-03-15 12:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__abatement_ids
+msgid "Abatements"
+msgstr "Abatements"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__active
+msgid "Actif"
+msgstr "Actif"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__seniority_employee
+msgid "Anciennété"
+msgstr "Ancienneté"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_update_extension_3_form
+msgid "Aspect financier"
+msgstr "Aspect financier"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_config_settings__module_hr_holidays_auto
+msgid "Attribution automatique de congés"
+msgstr "Attribution automatique de congés"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__other
+msgid "Autres"
+msgstr "Autres"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__max_age_child
+msgid "Aĝe maximal enfant à charge"
+msgstr "Age maximal enfant à charge"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.res_company_update_form_view
+msgid "CNPS"
+msgstr "CNPS"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Carte de séjour"
+msgstr "Carte de séjour"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__carte_sejour_ids
+msgid "Carte de séjour des employés"
+msgstr "Carte de séjour des employés"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_carte_sejour
+msgid "Carte de séjour employé"
+msgstr "Carte de séjour employé"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__category_id
+msgid "Catégorie"
+msgstr "Catégorie"
+
+#. module: hr_update
+#: model:ir.actions.act_window,name:hr_update.action_hr_contract_category_tree_view
+#: model:ir.ui.menu,name:hr_update.hr_contract_category_tree_view_menu
+msgid "Catégories d'employé"
+msgstr "Catégories d'employé"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_contract_category_tree_view
+msgid "Catégories d'employés"
+msgstr "Catégories d'employés"
+
+#. module: hr_update
+#: model:ir.actions.act_window,name:hr_update.action_hr_categorie_salaire_tree_view
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_categorie_salaire_form_view
+msgid "Catégories de salaire"
+msgstr "Catégories de salaire"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_diplomes_employee__type__certif
+msgid "Certification"
+msgstr "Certification"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_partner_bank__rib
+msgid "Clé RIB"
+msgstr "Clé RIB"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__code
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__code
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__code
+msgid "Code"
+msgstr "Code"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_partner_bank__code_guichet
+msgid "Code guichet"
+msgstr "Code guichet"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.res_company_update_form_view
+msgid "Configurations CNPS et IMPOTS"
+msgstr "Configurations CNPS et IMPOTS"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__conjoint
+msgid "Conjoint(e)"
+msgstr "Conjoint(e)"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__cousin
+msgid "Cousin / Cousine"
+msgstr "Cousin / Cousine"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__create_uid
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__create_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__create_date
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__start_date
+msgid "Date d'ancièneté"
+msgstr "Date d'anciènneté"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__date_entree
+msgid "Date d'entrée"
+msgstr "Date d'entrée"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__date_obtention
+msgid "Date d'obtention"
+msgstr "Date d'obtention"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__end_date
+msgid "Date de depart"
+msgstr "Date de depart"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__date_naissance
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__date_naissance
+msgid "Date de naissance"
+msgstr "Date de naissance"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__conjoint_birthdate
+msgid "Date de naissance du conjoint"
+msgstr "Date de naissance du conjoint"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__date_start
+msgid "Date début"
+msgstr "Date début"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__date_end
+msgid "Date fin"
+msgstr "Date fin"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_employee_degree
+msgid "Degree of employee"
+msgstr "Degré d'employé"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__department_id
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_department__type__department
+msgid "Departement"
+msgstr "Département"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_department
+msgid "Department"
+msgstr "Département"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__description
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__description
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__description
+msgid "Description"
+msgstr "Description"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_categorie_salaire_form_view
+msgid "Description de la Catégories de salaire"
+msgstr "Description de la Catégories de salaire"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_contract_category_form_view
+msgid "Description de la catégorie d'employé"
+msgstr "Description de la catégorie d'employé"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_diplomes_employee
+msgid "Diplome employe"
+msgstr "Diplome employe"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_diplomes_employee__type__diplome
+msgid "Diplôme"
+msgstr "Diplôme"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__diplome_ids
+msgid "Diplôme des employés"
+msgstr "Diplôme des employés"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_diplome_employee_form_view
+msgid "Diplômes"
+msgstr "Diplômes"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__direction_id
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_department__type__direction
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Direction"
+msgstr "Direction"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_department__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__display_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__display_name
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__display_name
+#: model:ir.model.fields,field_description:hr_update.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_update.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hr_update.field_res_partner_bank__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_diplomes_domaine
+msgid "Domaine de diplome employe"
+msgstr "Domaine de diplome employe"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__domaine_id
+msgid "Domaines"
+msgstr "Domaines"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_diplome_employee_form_view
+msgid "Duration"
+msgstr "Durée"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__date_debut
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__date_debut
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__date_debut
+msgid "Début validité"
+msgstr "Début validité"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__name
+msgid "Désignation"
+msgstr "Désignation"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__email
+msgid "Email"
+msgstr "Email"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_payroll_ci_qualification
+msgid "Employee qualification"
+msgstr "Qualification des employés"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.view_hr_employee_pivot
+msgid "Employees"
+msgstr "Employés"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__employee_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__employee_id
+msgid "Employé"
+msgstr "Employé"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__enfant
+msgid "Enfant"
+msgstr "Enfant"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__enfants_ids
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Enfants"
+msgstr "Enfants"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_employee_enfant
+msgid "Enfants de l'employé"
+msgstr "Enfants de l'employé"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_employee__nature_employe__expat
+msgid "Expatrié"
+msgstr "Expatrié"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Familles"
+msgstr "Familles"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__date_fin
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__date_fin
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__date_fin
+msgid "Fin validité"
+msgstr "Fin validité"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__frere
+msgid "Frère / Soeur"
+msgstr "Frère / Soeur"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_res_abatement
+#: model_terms:ir.ui.view,arch_db:hr_update.res_company_update_form_view
+msgid "Gestion des abatements"
+msgstr "Gestion des abatements"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_contract_category
+msgid "Gestion des cetegories d'employee"
+msgstr "Gestion des catégories d'employé"
+
+#. module: hr_update
+#: model:ir.model.fields,help:hr_update.field_hr_employee_degree__sequence
+msgid "Gives the sequence order when displaying a list of degrees."
+msgstr "Donne l'ordre de séquence lors de l'affichage d'une liste de degrés."
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__grand_parent
+msgid "Grand père/Grande mère"
+msgstr "Grand père/Grande mère"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_employee__type__h
+msgid "Horaire"
+msgstr "Horaire"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_department__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__id
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__id
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__id
+#: model:ir.model.fields,field_description:hr_update.field_res_company__id
+#: model:ir.model.fields,field_description:hr_update.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hr_update.field_res_partner_bank__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_its
+msgid "ITS (Taux)"
+msgstr "ITS (Taux)"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__image
+msgid "Image"
+msgstr "Image"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.res_company_update_form_view
+msgid "Impots"
+msgstr "Impots"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.res_company_update_form_view
+msgid "Informations IGR"
+msgstr "Informations IGR"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_employee__type__j
+msgid "Journalier"
+msgstr "Journalier"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_department____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level____last_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa____last_update
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement____last_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company____last_update
+#: model:ir.model.fields,field_description:hr_update.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:hr_update.field_res_partner_bank____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__write_uid
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__write_date
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__write_date
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__Lien
+msgid "Le lien"
+msgstr "Le lien"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Les Enfants"
+msgstr "Les Enfants"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__parent_employee_ids
+msgid "Les parents"
+msgstr "Les parents"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__name
+#: model:ir.model.fields,field_description:hr_update.field_hr_payroll_ci_qualification__name
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__name
+msgid "Libellé"
+msgstr "Libellé"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_domaine__libelle
+msgid "Libellé Domaine"
+msgstr "Libellé Domaine"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__name
+msgid "Libellé Licence"
+msgstr "Libellé Licence"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__name
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__name
+msgid "Libellé visa"
+msgstr "Libellé visa"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Licence"
+msgstr "Licence"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_licence
+msgid "Licence employé"
+msgstr "Licence employé"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Licences"
+msgstr "Licences"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__licence_ids
+msgid "Licences des employés"
+msgstr "Licences des employés"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_employee__nature_employe__local
+msgid "Local"
+msgstr "Local"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__identification_id
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Matricule"
+msgstr "Matricule"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_employee__type__m
+msgid "Mensuel"
+msgstr "Mensuel"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__name
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__name
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__nature_employe
+msgid "Nature de l'employé"
+msgstr "Nature de l'employé"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__diplome_id
+msgid "Niveau"
+msgstr "Niveau"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__recruitment_degree_id
+msgid "Niveau d'étude"
+msgstr "Niveau d'étude"
+
+#. module: hr_update
+#: model:ir.actions.act_window,name:hr_update.action_hr_update_study_level
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__study_level_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_update_study_level__name
+#: model:ir.ui.menu,name:hr_update.menu_hr_update_study_level
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_update_study_level_form_view
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_update_study_level_tree_view
+msgid "Niveau etude"
+msgstr "Niveau etude"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_update_study_level
+msgid "Niveau etudes"
+msgstr "Niveaux études"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__name
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__name
+msgid "Nom"
+msgstr "Nom"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__conjoint_name
+msgid "Nom conjoint(e)"
+msgstr "Nom conjoint(e)"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__children
+msgid "Nombre d'enfant"
+msgstr "Nombre d'enfant"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__enfants_a_charge
+msgid "Nombre d'enfants à charge"
+msgstr "Nombre d'enfants à charge"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__part_cmu
+msgid "Nombre de part CMU"
+msgstr "Nombre de part CMU"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__total_children
+msgid "Nombre enfant total a charge"
+msgstr "Nombre enfant total à charge"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_config_settings__module_hr_employee_birthday
+msgid "Notification dates d'anniversaires"
+msgstr "Notification dates d'anniversaires"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__num_cnps
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Numéro CNPS"
+msgstr "Numéro CNPS"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__num_contribuable
+msgid "Numéro Contribuable"
+msgstr "Numéro Contribuable"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__num_cmu
+msgid "N° CMU"
+msgstr "N° CMU"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__num_cmu_conjoint
+msgid "N° CMU conjoint"
+msgstr "N° CMU conjoint"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__matricule_cnps
+msgid "N° CNPS"
+msgstr "N° CNPS"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__reference
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__reference
+msgid "N° Visa"
+msgstr "N° Visa"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__oncle
+msgid "Oncle/Tante"
+msgstr "Oncle/Tante"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Papiers"
+msgstr "Papiers"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__parcelle
+msgid "Parcelle"
+msgstr "Parcelle"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Parents"
+msgstr "Parents"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__part_igr
+msgid "Part IGR"
+msgstr "Part IGR"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_carte_sejour__pays_id
+#: model:ir.model.fields,field_description:hr_update.field_hr_visa__pays_id
+msgid "Pays"
+msgstr "Pays"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_personne_contacted
+msgid "Personnes a contacter"
+msgstr "Personnes à contacter"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__presonnes_contacted_ids
+msgid "Personnes à contacter"
+msgstr "Personnes à contacter"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Personnes à contacter en urgence"
+msgstr "Personnes à contacter en urgence"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__max_assiette_autre_contribution
+msgid "Plafond regime autres contributions"
+msgstr "Plafond regime autres contributions"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__max_assiette_cnps
+msgid "Plafond regime de retraite mensuel"
+msgstr "Plafond regime autres contributions"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__mobile
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__mobile
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__portable
+msgid "Portable"
+msgstr "Portable"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__first_name
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Prenoms"
+msgstr "Prenoms"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_contract_category_form_view
+msgid "Primes"
+msgstr "Primes"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__first_name
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__first_name
+msgid "Prénoms"
+msgstr "Prénoms"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__conjoint_first_name
+msgid "Prénoms conjoint(e)"
+msgstr "Prénoms conjoint(e)"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__parent
+msgid "Père / Mère"
+msgstr "Père / Mère"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Période de travail"
+msgstr "Père / Mèrec"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__qualification_id
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Qualification"
+msgstr "Qualification"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__reference
+#: model:ir.model.fields,field_description:hr_update.field_hr_licence__reference
+msgid "Reférence"
+msgstr "Référence"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_degree__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__service_id
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_department__type__service
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Service"
+msgstr "Service"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__impot_service
+msgid "Service d'assiette"
+msgstr "Service d'assiette"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__gender_conjoint
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__gender
+msgid "Sexe"
+msgstr "Sexe"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_categorie_salaire__sequence
+#: model:ir.model.fields,field_description:hr_update.field_hr_contract_category__sequence
+msgid "Séquence"
+msgstr "Séquence"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_abatement__taux
+msgid "Taux"
+msgstr "Taux"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_cnps_employer
+msgid "Taux CNPS employeur"
+msgstr "Taux CNPS employeur"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_cnps_employee_local
+msgid "Taux CNPS employé local"
+msgstr "Taux CNPS employeur"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_fdfp
+msgid "Taux FDFP"
+msgstr "Taux FDFP"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_fdfp_fc
+msgid "Taux FDFP FC"
+msgstr "Taux FDFP FC"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_accident_travail
+msgid "Taux accident de travail"
+msgstr "Taux accident de travail"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_assurance_mater
+msgid "Taux assurance maternité"
+msgstr "Taux assurance maternité"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_prestation_familiale
+msgid "Taux prestation familiale"
+msgstr "Taux prestation familiale"
+
+#. module: hr_update
+#: model:ir.model.constraint,message:hr_update.constraint_hr_employee_degree_name_uniq
+msgid "The name of the Degree of employee must be unique!"
+msgstr "Le nom du diplôme d'employé doit être unique!"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_department__type
+#: model:ir.model.fields,field_description:hr_update.field_hr_diplomes_employee__type
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__type
+msgid "Type"
+msgstr "Type"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_personne_contacted__state
+msgid "Type de lien"
+msgstr "Type de lien"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__mobile
+msgid "Téléphone cellulaire"
+msgstr "Téléphone cellulaire"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Téléphone fixe professionnel"
+msgstr "Téléphone fixe professionnel"
+
+#. module: hr_update
+#: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
+msgid "Visas"
+msgstr "Visas"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__visa_ids
+msgid "Visas des employés"
+msgstr "Visas des employés"
+
+#. module: hr_update
+#: model:ir.model.fields.selection,name:hr_update.selection__hr_personne_contacted__state__voisin
+msgid "Voisin"
+msgstr "Voisin"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_res_company__taux_cnps_employe_expat
+msgid "aux CNPS employé expatrié"
+msgstr "aux CNPS employé expatrié"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__email
+#: model:ir.model.fields,field_description:hr_update.field_hr_parent_employe__email
+msgid "email"
+msgstr "email"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_categorie_salaire
+msgid "hr categorie salaire"
+msgstr "Catégorie salaire RH"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_parent_employe
+msgid "les parents de l'employee"
+msgstr "les parents de l'employé"
+
+#. module: hr_update
+#: model:ir.model,name:hr_update.model_hr_visa
+msgid "visa employé"
+msgstr "visa employé"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee_enfant__age
+msgid "Âge"
+msgstr "Âge"
+
+#. module: hr_update
+#: model:ir.model.fields,field_description:hr_update.field_hr_employee__age
+msgid "Âge employé"
+msgstr "Âge employé"

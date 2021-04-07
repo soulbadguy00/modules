@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--        <record id="view_hr_holidays_summary_dept_extend" model="ir.ui.view">-->
+<!--            <field name="name">hr.holidays.summary.dept.form</field>-->
+<!--            <field name="model">hr.holidays.summary.dept</field>-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_hr_holidays_summary_dept"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="date_from"  position="after">-->
+<!--                    <field name="date_to" />-->
+<!--                    <field name="type" />-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+
+</odoo>

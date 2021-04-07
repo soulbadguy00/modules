@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_cnps_trimestriel_report" model="ir.actions.report">
+        <field name="name">CNPS Trimestriel</field>
+        <field name="model">hr.cnps.trimestriel</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_cnps_trimestriel.cnps_trimestriel_report</field>
+        <field name="report_file">hr_cnps_trimestriel.cnps_trimestriel_report</field>
+    </record>
+</odoo>

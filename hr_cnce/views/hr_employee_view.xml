@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+		<!-- gestion des employés -->
+		<record model="ir.ui.view" id="hr_employee_inh_form_view">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='bank_account_id']" position="replace">
+
+				</xpath>
+				<!--<xpath expr="//field[@name='certificate']" position="replace">
+					<field name="certificate" string="Niveau d'étude" />
+
+				</xpath>-->
+				<xpath expr="//field[@name='study_field']" position="replace">
+					<field name="study_field" string="Domaine d’étude" />
+				</xpath>
+				<xpath expr="//field[@name='identification_id']" position="after">
+					<!--<field name="num_cgare" />
+					<field name="num_crrae" />-->
+					<field name="num_cmu" />
+				</xpath>
+				<xpath expr="/form/sheet/notebook/page[2]/group/group[5]" position="replace">
+
+				</xpath>
+				<xpath expr="//field[@name='address_home_id']" position="after">
+					<field name="mobile_personnal" />
+					<field name="email_personal" />
+				</xpath>
+				<xpath expr="//field[@name='parent_id']" position="attributes">
+					<attribute name="string">Responsable</attribute>
+				</xpath>
+				<xpath expr="//field[@name='job_id']" position="before">
+					<field name="agence_id" />
+				</xpath>
+				<xpath expr="//field[@name='parent_id']" position="after">
+					<field name="type_employee" />
+				</xpath>
+				<xpath expr="//field[@name='identification_id']" position="attributes">
+					<attribute name="string">Matricule</attribute>
+					<attribute name="groups">hr.group_hr_user</attribute>
+				</xpath>
+				<xpath expr="//field[@name='piece_identite_id']" position="replace">
+                    <field name="type_piece_id" />
+                </xpath>
+				<notebook position="inside">
+					<page string="Comptes bancaires et repartition du salaire">
+						<separator string="Comptes bancaires" />
+						<field name="bank_ids" >
+							<tree >
+								<field name="acc_number" />
+								<field name="bank_name" string="Nom de la banque"/>
+								<field name="code_guichet" />
+								<field name="rib" />
+							</tree>
+							<form string="Ajouter un compte">
+								<group>
+									<group>
+										<field name="sequence" invisible="1"/>
+										<field name="acc_number"/>
+										<field name="code_guichet" />
+										<field name="acc_type"/>
+										<field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+										<field name="partner_id" required="0"/>
+										<field name="rib" />
+									</group>
+									<group>
+										<field name="bank_id"/>
+										<field name="currency_id" groups="base.group_multi_currency" options="{'no_create': True}"/>
+										<field name="acc_holder_name"/>
+									</group>
+								</group>
+							</form>
+						</field>
+						<group col="4">
+							<field name="main_bank_id" />
+						</group>
+						<separator string="Repartition de salaire" />
+						<field name="dispatch_bank_ids" string="Repartition de salaire">
+							<tree editable="top">
+								<field name="bank_id" domain="[('employee_id','=', parent.id)]"/>
+								<field name="type" />
+								<field name="amount" />
+								<field name="description" />
+							</tree>
+						</field>
+					</page>
+					<page string="Gestion des visites médicales">
+						<field name="visit_ids">
+							<tree editable="top">
+								<field name="name" />
+								<field name="date_prevue" />
+								<field name="date_effective" />
+								<field name="description" />
+								<field name="lieu_visite" />
+							</tree>
+						</field>
+					</page>
+				</notebook>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_inh_cnce_form_view2">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr_update.hr_employee_inh_form_view"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='end_date']" position="after">
+					<field name="motif_fin_contract_id" attrs="{'required':[('end_date', '!=', False)],
+					'invisible':[('end_date', '=', False)]}"/>
+					<field name="motif_depart" attrs="{'required':[('end_date', '!=', False)],
+					'invisible':[('end_date', '=', False)]}"/>
+					<field name="date_first_alerte_retraite" invisible="1"/>
+					<field name="date_second_alerte_retraite" invisible="1"/>
+					<field name="estimed_date_leave" invisible="1"/>
+					<field name="number_days_estimed_holidays" invisible="1"/>
+					<field name="estimated_date_return_leave" invisible="1"/>
+				</xpath>
+				<xpath expr="//field[@name='end_date']" position="before">
+					<field name="date_annienete" />
+				</xpath>
+
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_inh_cnce_tree_view3">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='job_id']" position="replace">
+				</xpath>
+				<xpath expr="//field[@name='name']" position="before">
+					<field name="identification_id" string="Matricule"/>
+					<field name="matricule_cnps" />
+					<field name="category_id" />
+				</xpath>
+				<xpath expr="//field[@name='department_id']" position="before">
+					<field name="job_id" />
+					<field name="direction_id" />
+				</xpath>
+
+				<xpath expr="//field[@name='department_id']" position="after">
+					<field name="service_id" />
+					<field name="agence_id" />
+					<field name="gender" />
+					<field name="date_annienete" />
+					<field name="birthday" />
+					<field name="age" />
+				</xpath>
+
+			</field>
+		</record>
+
+		<!--<record model="ir.ui.view" id="hr_employee_inh_cnce_form_view4">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='active_group']" position="before">
+					<group string="Current Contract">
+						<field name="medic_exam_yearly" />
+						<field name="college" />
+						<field name="medic_exam" string="Visite Médical d'embauche"/>
+					</group>
+				</xpath>
+			</field>
+		</record>-->
+
+		<record model="ir.ui.view" id="hr_employee_inh_cnce_search_view4">
+			<field name="name">hr.employee.search</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_filter"/>
+			<field name="arch" type="xml">
+					<field name="job_id" position="after">
+						<field name="identification_id" string="Matricule" />
+					</field>
+			</field>
+		</record>
+
+		<record id="hr.open_view_employee_list_my" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form,kanban,pivot,graph,activity</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="hr_employee_inh_cnce_search_view4"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Add a new employee
+              </p><p>
+                With just a quick glance on the Odoo employee screen, you
+                can easily find all the information you need for each person;
+                contact data, job position, availability, etc.
+              </p>
+            </field>
+        </record>
+
+		<!-- gestion des agences -->
+		<record model="ir.ui.view" id="hr_agence_form_view">
+			<field name="name">hr.agence.form</field>
+			<field name="model">hr.agence</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<field name="name" />
+						<field name="description" />
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_agence_tree_view">
+			<field name="name">hr.agence.tree</field>
+			<field name="model">hr.agence</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="description" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_agence_view">
+			<field name="name">Gestion des agences</field>
+			<field name="res_model">hr.agence</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="hr_agence_menu" name="Agences" parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager" action="action_hr_agence_view"
+				  sequence="100"/>
+
+		<!-- gestion des motifs de clotures contrat -->
+		<record model="ir.ui.view" id="hr_employee_motif_cloture_form_view">
+			<field name="name">hr.employee.motif.cloture.form</field>
+			<field name="model">hr.employee.motif.cloture</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group col="4">
+							<field name="name" />
+							<field name="description" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_motif_cloture_tree_view">
+			<field name="name">hr.employee.motif.cloture.tree</field>
+			<field name="model">hr.employee.motif.cloture</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_employee_motif_cloture_view">
+			<field name="name">Gestion des motifs de clôture</field>
+			<field name="res_model">hr.employee.motif.cloture</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="hr_employee_motif_cloture_menu" name="Motifs de clôture" parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager" action="action_hr_employee_motif_cloture_view"
+				  sequence="100"/>
+
+
+
+    </data>
+</odoo>

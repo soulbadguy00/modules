@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="email_validation_template_holidays" model="mail.template">
+            <field name="name">Validation demande de congés</field>
+            <field name="email_from">${(object.employee_id.company_id.email or'')|safe }</field>
+            <!--<field name="email_to">${(object.user_id.email or '')|safe}</field>-->
+            <field name="email_to">${(object.employee_id.work_email or '')|safe}</field>
+            <field name="subject">Validation demande de congés de Mr/Mme/Mlle ${object.employee_id.name}</field>
+            <field name="model_id" ref="model_hr_leave"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.employee_id.user_id.lang}</field>
+            <field name="body_html">
+                <![CDATA[
+                    <p>Bonjour M/Mme ,</p>
+                    <p>Votre demande de congés vient d'être validée.</p>
+                    <p>Cordialement!</p>
+                ]]>
+
+            </field>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hr_holidays_recorvery_form">
+        <field name="name">hr.holidays.recovery.form</field>
+        <field name="model">hr.holidays.recovery</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" string="Soumettre pour validation"  states="draft" type="object" />
+                    <button name="action_chief_departement" string="Valider"  states="department" type="object"
+                        class="oe_highlight" groups="hr_holidays.group_hr_holidays_user"/>
+                    <button name="action_chief_direction" string="Valider"  states="direction" type="object"
+                        class="oe_highlight" groups="hr_cnce.group_hr_holidays_director"/>
+                     <button name="action_done" string="Valider"  states="drh" type="object" class="oe_highlight"
+                        groups="hr_holidays.group_hr_holidays_manager" />
+                    <button name="action_to_draft" string="Mettre en brouillon"  states="done,cancel" type="object" />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group col="4">
+                        <field name="employee_id" />
+                        <field name="holidays_id" />
+                        <field name="recovery_date" />
+                        <field name="recovery_hour" />
+                        <field name="number_of_holidays" />
+                        <field name="direction_id" />
+                        <field name="department_id" />
+                        <field name="service_id" />
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_holidays_recovery_tree">
+        <field name="name">hr.holidays.recovery.form</field>
+        <field name="model">hr.holidays.recovery</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="holidays_id" />
+                <field name="recovery_date" />
+                <field name="number_of_holidays" />
+                <field name="direction_id" />
+                <field name="department_id" />
+                <field name="service_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hr_holidays_recovery" model="ir.actions.act_window">
+        <field name="name">Reprise des congés</field>
+        <field name="res_model">hr.holidays.recovery</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créer une nouvelle reprise de congés
+          </p>
+        </field>
+    </record>
+
+    <menuitem name="Attestion de reprise de congés"  id="menu_hr_holidays_recovery"  parent="holidays_provision_menu"
+              action="action_hr_holidays_recovery" />
+
+    <menuitem name="Attestion de reprise de congés"  id="menu_my_hr_holidays_recovery"  parent="hr_holidays.menu_hr_holidays_my_leaves"
+              action="action_hr_holidays_recovery" />
+</odoo>

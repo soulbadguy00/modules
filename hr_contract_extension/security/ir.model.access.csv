@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_secteur_activite,hr.secteur.activite,hr_contract_extension.model_hr_secteur_activite,hr.group_hr_manager,1,1,1,1
+access_hr_categorie_salariale,hr.categorie.salariale,model_hr_categorie_salariale,hr.group_hr_manager,1,1,1,1
+access_hr_payroll_prime,hr.payroll.prime,model_hr_payroll_prime,hr.group_hr_manager,1,1,1,1
+access_hr_payroll_prime_montant,hr.payroll.prime.montant,model_hr_payroll_prime_montant,hr.group_hr_manager,1,1,1,1
+access_hr_convention,hr.convention,model_hr_convention,hr.group_hr_manager,1,1,1,1
+access_hr_contract_closed,hr.contract.closed,model_hr_contract_closed,hr.group_hr_manager,1,1,1,1
+access_hr_piece_identite,hr.piece.identite,model_hr_piece_identite,hr.group_hr_manager,1,1,1,1
+access_hr_type_piece,hr.type.piece,model_hr_type_piece,hr.group_hr_manager,1,1,1,1
+access_hr_reverse_contract,hr.reverse.contract,model_hr_reverse_contract,hr.group_hr_manager,1,1,1,1
+access_hr_reverse_prime,hr.reverse.prime,model_hr_reverse_prime,hr.group_hr_manager,1,1,1,1
+access_hr_employee_nature_piece_manager,hr.employee.nature_piece payroll_manager,model_hr_employee_nature_piece,hr.group_hr_manager,1,1,1,1

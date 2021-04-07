@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="report_hr_crrae" model="ir.actions.report">
+        <field name="name">Rapports CRRAE</field>
+        <field name="model">hr.crrae</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_crrae.hr_crrae_raport.xlsx</field>
+        <field name="report_file">hr_crrae.hr_crrae_raport</field>
+        <field name="attachment_use">False</field>
+    </record>
+</odoo>

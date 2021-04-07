@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="hr_cnce.doc_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <div class="header">
+            <div class="row" style="padding-top:50px;">
+                <div class="col-3 mb4" style="margin-bottom:22px;">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                </div>
+                <table style="width: 100%; border-style: none;">
+                    <tr>
+                        <td style="width: 12%; text-align: center; border-style: none; font-size: 14px;color:red">
+                            <b>QUALITE</b><br/>
+                        </td>
+                        <td style="width: 12%; text-align: center; border-style: none; font-size: 14px; color:red">
+                            <b>PRECISION</b><br/>
+                        </td>
+                        <td style="width: 12%; text-align: center; border-style: none; font-size: 14px; color:red">
+                            <b>FIABILITE</b><br/>
+                        </td>
+                        <td style="width: 14%; text-align: center; border-style: none; font-size: 14px; color:red">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="article">
+            <t t-raw="0" />
+        </div>
+
+        <div class="footer">
+            <div class="text-center" style="font-size: 12px; margin-bottom: 10px;text_align:center;">
+                    CC N° 1744808P<br/>
+                    Riviera Palmeraie Triangle Lot 88 Ilot 7 - BP 512 CIDEX 3 ABIDJAN – Téléphone: 22 45 95 85<br/>
+                    Email: contact@hub-ci.com  - www.hub-ci.com
+            </div>
+        </div>
+    </template>
+
+</odoo>

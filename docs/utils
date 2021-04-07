@@ -1,0 +1,82 @@
+Bonjour,
+
+
+Votre VPS vient d'être installé sous le système d'exploitation / distribution
+Ubuntu 20.04
+
+
+PARAMETRES D'ACCES:
+L'adresse IPv4 du VPS est : 51.38.188.53
+
+Le nom du VPS est : vps-a8fbe34c.vps.ovh.net
+
+Le compte administrateur suivant a été configuré sur le VPS :
+Nom d'utilisateur : ubuntu
+Mot de passe :      Y4kn74fGtSsa
+
+
+
+POUR BIEN DEMARRER:
+Si vous vous connectez pour la première fois à un VPS, nous
+vous recommandons de consulter le guide suivant :
+https://docs.ovh.com/fr/vps/debuter-avec-vps/
+
+
+
+GESTION, FACTURATION, ASSISTANCE
+Vous pouvez gérer votre VPS depuis votre espace
+client web à l'adresse suivante :
+https://www.ovh.com/manager/
+
+
+OBTENIR DE L'AIDE:
+Pour vous accompagner dans la prise en main de votre VPS, nous
+mettons à votre disposition de nombreux guides d'utilisation :
+https://www.ovh.com/fr/support/knowledge/
+
+
+D'autre part, une importante communauté d'utilisateurs est
+accessible via notre forum et nos mailing-listes :
+https://www.ovh.com/fr/support/
+
+
+
+Merci de votre confiance,
+L'équipe OVH
+
+Cordialement,
+
+Votre Service client OVHcloud
+Pour obtenir de l'aide, rendez-vous sur notre centre d'aide : https://help.ovhcloud.com/
+
+
+[ref=1.91df7c12]
+
+
+---- Setting permissions on home folder ----
+* Create server config file
+* Creating server config file
+* Generating random admin password
+* Create startup file
+* Create init file
+* Security Init File
+* Start ODOO on Startup
+Nginx isn't installed due to choice of the user!
+SSL/HTTPS isn't enabled due to choice of the user or because of a misconfiguration!
+* Starting Odoo Service
+Starting odoo-server: odoo-server.
+-----------------------------------------------------------
+Done! The Odoo server is up and running. Specifications:
+Port: 8069
+User service: odoo
+Configuraton file location: /etc/odoo-server.conf
+Logfile location: /var/log/odoo
+User PostgreSQL: odoo
+Code location: odoo
+Addons folder: odoo/odoo-server/addons/
+Password superadmin (database): N9XRrEZkPsZUwGt4
+Start Odoo service: sudo service odoo-server start
+Stop Odoo service: sudo service odoo-server stop
+Restart Odoo service: sudo service odoo-server restart
+-----------------------------------------------------------
+

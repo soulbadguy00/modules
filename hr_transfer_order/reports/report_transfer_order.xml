@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_transfer_order">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="hr_transfer_order.internal_layout">
+                        <div class="page">
+                            <div>
+                                <t t-if="o.groupby_bank">
+                                    <t t-foreach="o.bank_group_line()" t-as="page">
+                                        <t t-foreach="page" t-as="bank_category">
+                                            <table style="width: 100%;">
+                                                <thead>
+                                                        <tr>
+                                                            <th class="text-center">N°</th>
+                                                            <th class="text-center">NOM ET PRENOMS</th>
+                                                            <th class="text-center">CODE BANQUE</th>
+                                                            <th class="text-center">CODE GUICHET</th>
+                                                            <th class="text-center">NUMERO DE COMPTE</th>
+                                                            <th class="text-center">CLE RIB</th>
+                                                            <th class="text-center" style="width: 12%;">MONTANT</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="active category">
+                                                            <td colspan="7" style="font-weight: bold; border: 1px solid black;">
+                                                                <t t-esc="bank_category['name']"/>
+                                                            </td>
+                                                        </tr>
+                                                        <t t-foreach="bank_category['lines']" t-as="line">
+                                                            <tr>
+                                                                <td class="text-right"><span t-field="line.num_order" /></td>
+                                                                <td class="text-left"><span t-field="line.employee_id.name" /> <span t-field="line.employee_id.first_name" /></td>
+                                                                <td class="text-right"><t t-if="line.bank_id"><span t-field="line.bank_id.bic" /> </t></td>
+                                                                <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.code_guichet" /></t></td>
+                                                                <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.acc_number" /></t></td>
+                                                                <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.rib" /></t></td>
+                                                                <td class="text-right"><span t-field="line.amount" /></td>
+                                                            </tr>
+                                                        </t>
+                                                        <tr>
+                                                            <td colspan="6" class="text-left subtotal">
+                                                                <strong>SOUS TOTAL : </strong>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <t t-set="subtotal" t-value="sum(line.amount for line in bank_category['lines'])"/>
+                                                                <span t-esc="o.format_amount(subtotal)" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            <div style="page-break-after: always;"/>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-if="not o.groupby_bank">
+                                    <table style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">N°</th>
+                                                <th class="text-center">NOM ET PRENOMS</th>
+                                                <th class="text-center">CODE BANQUE</th>
+                                                <th class="text-center">CODE GUICHET</th>
+                                                <th class="text-center">NUMERO DE COMPTE</th>
+                                                <th class="text-center">CLE RIB</th>
+                                                <th class="text-center" style="width: 12%;">MONTANT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.order_line_ids" t-as="line" order-by="+line.num_order">
+                                                <tr>
+                                                    <td class="text-right"><span t-field="line.num_order" /></td>
+                                                    <td class="text-left"><span t-field="line.employee_id.name" />  <span t-field="line.employee_id.first_name" /></td>
+                                                    <td class="text-right"><t t-if="line.bank_id"><span t-field="line.bank_id.bic" /> </t></td>
+                                                    <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.code_guichet" /></t></td>
+                                                    <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.acc_number" /></t></td>
+                                                    <td class="text-right"><t t-if="line.acc_bank_id"><span t-field="line.acc_bank_id.rib" /></t></td>
+                                                    <td class="text-right"><span t-field="line.amount" /></td>
+                                                </tr>
+                                            </t>
+                                            <tr class="total">
+                                                <td colspan="6" class="text-left">
+                                                    <strong>TOTAL GENERAL : </strong>
+                                                </td>
+                                                <td class="text-right">
+                                                    <strong><span t-field="o.total" /></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+</data>
+</odoo>

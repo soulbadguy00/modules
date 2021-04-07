@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_salary_dispatched_payroll_manager,hr.employee.salary.dispatched payroll_manager,model_hr_employee_salary_dispatched,hr.group_hr_manager,1,1,1,1
+access_hr_employee_salary_dispatched_line_payroll_manager,hr.employee.salary.dispatched.line payroll_manager,model_hr_employee_salary_dispatched_line,hr.group_hr_manager,1,1,1,1
+access_hr_agence_manager,hr.agence payroll_manager,model_hr_agence,hr.group_hr_manager,1,1,1,1
+access_hr_contract_notification_line_manager,hr.contract.notification.line payroll_manager,model_hr_contract_notification_line,hr.group_hr_manager,1,1,1,1
+access_hr_category_contract_manager,hr.category.contract payroll_manager,model_hr_category_contract,hr.group_hr_manager,1,1,1,1
+access_hr_employee_motif_cloture_manager,hr.employee.motif.cloture payroll_manager,model_hr_employee_motif_cloture,hr.group_hr_manager,1,1,1,1
+access_hr_visit_medical_manager,hr.visit.medical payroll_manager,model_hr_visit_medical,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_provision_manager,hr.holidays.provision payroll_manager,model_hr_holidays_provision,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_provision_line_manager,hr.holidays.provision.line payroll_manager,model_hr_holidays_provision_line,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_recovery_line_manager,hr.holidays.recovery payroll_manager,model_hr_holidays_recovery,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_recovery_line_officer,hr.holidays.recovery holidays_officer,model_hr_holidays_recovery,hr.group_hr_user,1,1,1,1
+access_hr_holidays_recovery_line_user,hr.holidays.recovery holidays_user,model_hr_holidays_recovery,base.group_user,1,1,1,1
+access_hr_holidays_planning_user,hr.holidays.planning payroll_user,model_hr_holiday_planning,hr.group_hr_user,1,1,1,1
+access_hr_holidays_planning_manager,hr.holidays.planning payroll_manager,model_hr_holiday_planning,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_planning_department_manager,hr.holidays.planning department_manager,model_hr_holiday_planning,hr_holidays.group_hr_holidays_user,1,1,1,1
+access_hr_holidays_planning_director,hr.holidays.planning director,model_hr_holiday_planning,hr_cnce.group_hr_holidays_director,1,1,1,1
+access_hr_payroll_report_hr_manager,hr.payroll.report hr_manager,model_hr_payroll_report,hr.group_hr_manager,1,1,1,1
+access_hr_holidays_refuse_wizard,hr.holidays.refuse.wizard,model_hr_holidays_refuse_wizard,hr.group_hr_manager,1,1,1,1

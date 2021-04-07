@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="fonctionnaire_root_menu" name="Gestion des fonctionnaires" />
+
+        <!-- gestion des barèmes -->
+
+        <record model="ir.ui.view" id="hr_barement_fonctionnaire_tree_view">
+                <field name="name">hr.bareme.fonctionnaire.tree</field>
+                <field name="model">hr.bareme.fonctionnaire</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Livre de paie">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+
+            <record model="ir.ui.view" id="hr_barement_fonctionnaire_form_view">
+                <field name="name">hr.bareme.fonctionnaire.tree</field>
+                <field name="model">hr.bareme.fonctionnaire</field>
+                <field name="arch" type="xml">
+                    <form string="DISA">
+                        <sheet>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="Nom du barême" required="True"/>
+                                </h1>
+                            </div>
+                            <notebook>
+                                <page string="Description">
+                                    <field name="description" />
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+            <record model="ir.actions.act_window" id="action_hr_barement_fonctionnaire_tree_view">
+                <field name="name">Barème des fonctionnaires</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.bareme.fonctionnaire</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+            <menuitem id="hr_bareme_menu" name="Barème des fonctionnaires" parent="fonctionnaire_root_menu" action="action_hr_barement_fonctionnaire_tree_view"/>
+
+            <!-- gestion des classes -->
+            <record model="ir.ui.view" id="hr_classe_fonctionnaire_tree_view">
+                <field name="name">hr.classe.fonctionnaire.tree</field>
+                <field name="model">hr.classe.fonctionnaire</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Classes de fonctionnaire">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+
+            <record model="ir.ui.view" id="hr_classe_fonctionnaire_tree_view">
+                <field name="name">hr.classe.fonctionnaire.form</field>
+                <field name="model">hr.classe.fonctionnaire</field>
+                <field name="arch" type="xml">
+                    <form string="Classe de fonctionaire">
+                        <sheet>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="Nom du la classe" required="True"/>
+                                </h1>
+                            </div>
+                            <notebook>
+                                <page string="Description">
+                                    <field name="description" />
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_hr_classe_fonctionnaire_tree_view">
+                <field name="name">Classe des fonctionnaires</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.classe.fonctionnaire</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+            <menuitem id="hr_classe_menu" name="Classe des fonctionnaires" parent="fonctionnaire_root_menu" action="action_hr_classe_fonctionnaire_tree_view"/>
+
+            <!-- gestion des échelons -->
+            <record model="ir.ui.view" id="hr_echelon_fonctionnaire_tree_view">
+                <field name="name">hr.echelon.fonctionnaire.tree</field>
+                <field name="model">hr.echelon.fonctionnaire</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Classes de fonctionnaire">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+
+            <record model="ir.ui.view" id="hr_echelon_fonctionnaire_tree_view">
+                <field name="name">hr.echelon.fonctionnaire.form</field>
+                <field name="model">hr.echelon.fonctionnaire</field>
+                <field name="arch" type="xml">
+                    <form string="Classe de fonctionaire">
+                        <sheet>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="Nom du la classe" required="True"/>
+                                </h1>
+                            </div>
+                            <notebook>
+                                <page string="Description">
+                                    <field name="description" />
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_hr_echelon_fonctionnaire_tree_view">
+                <field name="name">Classe des fonctionnaires</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.echelon.fonctionnaire</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+            <menuitem id="hr_echelon_menu" name="Échelon des fonctionnaires" parent="fonctionnaire_root_menu" action="action_hr_echelon_fonctionnaire_tree_view"/>
+
+    </data>
+</odoo>

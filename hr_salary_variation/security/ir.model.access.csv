@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_salary_employee_variation_user,hr.salary.employee.variation user,model_hr_salary_employee_variation,base.group_user,1,1,1,1
+access_hr_salary_employee_variation_line_user,hr.salary.employee.variation_line user,model_hr_salary_employee_variation_line,base.group_user,1,1,1,1
+access_hr_salary_variation,hr.salary.variation,model_hr_salary_variation,base.group_user,1,1,1,1

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="report_hr_fdfp_print" model="ir.actions.report">
+        <field name="name">Déclaration FDFP</field>
+        <field name="model">hr.fdfp</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_FDFP.report_hr_fdfp</field>
+        <field name="report_file">hr_FDFP.report_hr_fdfp</field>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_hr_holidays_recovery">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="hr_cnce.doc_layout">
+
+                <div style="text-align: center; padding:200px 0px 100px 0px; "><h3 style="text-decoration: underline black;">ATTESTATION DE REPRISE DE CONGES</h3></div>
+                <p style="font-size: 18px;">
+                    Je <t t-if="o.validator_id.gender == 'male'">sousigné </t><t t-else="">soussignée</t> <t t-if="o.validator_id.gender == 'male'"> M </t><t t-else=""><t t-if="o.validator_id.marital == 'single'"> Mlle</t><t t-else=""> Mme </t>
+                    </t> <span t-field="o.validator_id.name" /><br/>
+                    Fonction <span t-field="o.validator_id.job_id.name" /> Direction/Service : <span t-field="o.validator_id.job_id.name" />
+                </p>
+                <p style="font-size: 18px;">
+                    Atteste que <t t-if="o.employee_id.gender == 'male'"> M </t><t t-else=""><t t-if="o.validator_id.marital == 'single'"> Mlle</t><t t-else=""> Mme </t>
+                    </t> <span t-field="o.employee_id.name" /> Matricule <span t-field="o.employee_id.identification_id" /> Fonction <span t-field="o.employee_id.job_id.name" />
+                </p>
+                <p>
+                    Bénéficiaire d'un congé <br/><span t-field="o.number_of_holidays"/> jours
+                </p>
+                <p>
+                    A repris le <span t-field="o.recovery_date" /> à <span t-field="o.recovery_hour" /> <br/>
+                </p>
+                <div class="pull-right" style="padding-top: 200px;">
+                    <div style="border-top : 1px solid black;"><h6><strong>Le Directeur des Ressources Humaines</strong></h6></div>
+                    <div >
+                        <img t-if="o.employee_id.company_id.signature_drh" t-att-src="image_data_uri(o.employee_id.company_id.signature_drh)" style="width: 200px; heigth: 50px;" />
+                    </div>
+                    <p class="text-center" style="border-bottom: 1px solid black;"><span t-field="o.employee_id.company_id.hr_manager_id.name" /> </p>
+                </div>
+
+            </t>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_transfer_order_manager,hr.transfer.order hr_manager,model_hr_tansfer_order,hr.group_hr_manager,1,1,1,1
+access_hr_transfer_order_line_manager,hr.transfer.order_line hr_manager,model_hr_transfer_order_line,hr.group_hr_manager,1,1,1,1
+access_hr_transfer_order_comment_manager,hr.transfer.order.comment hr_manager,model_hr_transfer_order_comment,hr.group_hr_manager,1,1,1,1
+

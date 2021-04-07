@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+}
+th {
+    border: 1px solid black;
+    background-color: darkgrey;
+    font-size: 12px;
+    padding: 3px 3px;
+}
+
+table td{
+    border: 1px solid black;
+    font-size: 12px;
+    padding: 3px 3px;
+}
+
+.category {
+    background-color: #87a6b5;
+}
+
+.total {
+    background-color: black;
+    color: white;
+}

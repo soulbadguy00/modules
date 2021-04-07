@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="hr_transfer_order.internal_layout">
+        <div class="article">
+            <link href="/hr_transfer_order/static/src/css/hr_transfer_order.css" rel="stylesheet"/>
+          <t t-raw="0" />
+        </div>
+    </template>
+
+</odoo>

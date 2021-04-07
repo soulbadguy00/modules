@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    	<report -->
+<!--            string="Rapports CMU Excel"-->
+<!--            id="report_cmu_rapport"-->
+<!--            model="hr_cmu.cmu_rapport"-->
+<!--            report_type="xlsx"-->
+<!--            name="hr_cmu.cmu_rapport_xlsx"-->
+<!--            file="hr_cmu.cmu_rapport_xlsx"-->
+<!--        />-->
+<!--        -->
+        <report
+            id="report_cmu_rapport"
+            model="hr_cmu.cmu_rapport"
+            string="Rapports CMU Excel"
+            report_type="xlsx"
+            name="hr_cmu.cmu_rapport_xlsx"
+            file="cmu_rapport"
+            attachment_use="False"
+        />
+</odoo>

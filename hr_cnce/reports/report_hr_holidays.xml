@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_hr_holidays">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="hr_cnce.doc_layout">
+
+                <div style="text-align: center; padding:200px 0px 100px 0px; "><h3 style="text-decoration: underline black;">DECISION DE CONGES</h3></div>
+                <p style="font-size: 18px;">
+                    <t t-if="o.employee_id.gender == 'male'">Monsieur </t><t t-else="">Madame </t><span t-field="o.employee_id.name" /> (Mle – <span t-field="o.employee_id.identification_id" />), <span t-field="o.employee_id.job_id.name" />, en
+                    <t t-if="o.service_id"><span t-field="o.service_id.name" /></t><t t-else=""><t t-if="o.service_id"><span t-field="o.department_id.name" /></t></t> , est bénéficiaire d’un congé
+annuel de <span t-field="o.number_of_days_display"/> jours, à compter du <span t-field="o.request_date_from"/>.
+                </p>
+                <p style="font-size: 18px;">
+                    L’intéressé reprendra le service le <span t-field="o.request_date_to" />.
+                </p>
+                <div class="pull-right" style="padding-top: 200px;">
+                    <div style="border-top : 1px solid black;"><h6><strong>Le Directeur des Ressources Humaines</strong></h6></div>
+                    <div >
+                        <img t-if="o.employee_id.company_id.signature_drh" t-att-src="image_data_uri(o.employee_id.company_id.signature_drh)" style="width: 200px; heigth: 50px;" />
+                    </div>
+                    <p class="text-center" style="border-bottom: 1px solid black;"><span t-field="o.employee_id.company_id.hr_manager_id.name" /> </p>
+                </div>
+
+            </t>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

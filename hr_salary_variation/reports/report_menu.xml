@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_hr_salaryy_recap_print" model="ir.actions.report">
+        <field name="name">État récepitulatif de salaire</field>
+        <field name="model">hr.salary.variation</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_salary_variation.report_hr_salary_variation</field>
+        <field name="report_file">hr_salary_variation.report_hr_salary_variation</field>
+    </record>
+
+    <record id="action_hr_salary_recap_by_rule_print" model="ir.actions.report">
+        <field name="name">État récepitulatif de salaire par règle salariale</field>
+        <field name="model">hr.salary.variation</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_salary_variation.report_hr_salary_variation_by_rule</field>
+        <field name="report_file">hr_salary_variation.report_hr_salary_variation_by_rule</field>
+    </record>>
+</odoo>

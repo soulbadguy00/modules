@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="report_hr_payroll" model="ir.actions.report">
+            <field name="name">Livre de paie</field>
+            <field name="model">hr.payroll.payroll</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_payroll_ci_raport.report_payroll</field>
+            <field name="report_file">hr_payroll_ci_raport.report_payroll</field>
+            <field name="print_report_name">object.name</field>
+        </record>
+
+        <record id="payroll_report_xlsx" model="ir.actions.report">
+            <field name="name">Livre de paie</field>
+            <field name="model">hr.payroll.payroll</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">hr_payroll_ci_raport.hr_payroll_xlsx</field>
+            <field name="report_file">LIVRE DE PAIE</field>
+            <field name="attachment_use">False</field>
+        </record>
+
+<!--        <report-->
+<!--            id="payroll_report_xlsx"-->
+<!--            model="hr.payroll.payroll"-->
+<!--            string="Livre de paie"-->
+<!--            report_type="xlsx"-->
+<!--            name="hr_payroll_ci_raport.hr_payroll.xlsx"-->
+<!--            file="hr_payroll_ci_raport.hr_payroll.xlsx"-->
+<!--        />-->
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+		<!-- gestion des employés -->
+		<record model="ir.ui.view" id="hr_leaves_inh_form_view">
+			<field name="name">hr.leave.form</field>
+			<field name="model">hr.leave</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//header" position="replace">
+					<header>
+						<button string="Soumettre pour validation" name="action_submit" states="draft" type="object"
+								class="oe_highlight" groups="base.group_user"/>
+						<button string="Soumettre au chef de departement" name="action_chief_service" states="service"
+								type="object" class="oe_highlight"/>
+						<button string="Soumettre au directeur" name="action_chief_department" states="department"
+								type="object" class="oe_highlight" groups="hr_holidays.group_hr_holidays_user"/>
+						<button string="Soumettre au DRH" name="action_confirm" states="direction"
+								type="object" class="oe_highlight" groups="hr_cnce.group_hr_holidays_director"/>
+						<button string="Approuver" name="action_validate" type="object" class="oe_highlight"
+								states="confirm" groups="hr_holidays.group_hr_holidays_manager"/>
+						<button string="Refuser" name="%(action_hr_holidays_refused_from_view)d"
+								states="confirm,service,direction,department" type="action" class="oe_highlight" />
+                		<button string="Remettre en brouillon" name="action_draft" type="object"
+								attrs="{'invisible': ['|', ('can_reset', '=', False), ('state', 'not in', ['confirm', 'refuse'])]}"/>
+
+						<field name="state" widget="statusbar" statusbar_visible="confirm,validate"/>
+					</header>
+				</xpath>
+				<xpath expr="//field[@name='department_id']" position="before">
+                    <field name="direction_id" />
+				</xpath>
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="service_id" />
+					<field name="justification"/>
+				</xpath>
+				<xpath expr="//field[@name='name']" position="after">
+					<field name="motif_refus" attrs="{'invisible': [('state', '!=', 'refuse')] }" />
+					<field name="company_id" groups="base.group_multi_company" readonly="1" invisible="0"/>
+					<field name="date_noty_start" string="Date notif départ" invisible="1" />
+					<field name="date_noty_return" string="Date notif retour" invisible="1" />
+					<field name="vacation_destination" attrs="{'invisible':[('code', '!=', 'CONG')]}"/>
+					<field name="interim_id" attrs="{'invisible':[('code', '!=', 'CONG')]}"/>
+					<field name="other_contact" attrs="{'invisible':[('code', '!=', 'CONG')]}"/>
+					<field name="code" invisible="1"/>
+				</xpath>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="hr_leaves_manager_inh_form_view">
+			<field name="name">hr.leave.form</field>
+			<field name="model">hr.leave</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+            <field name="arch" type="xml">
+				<xpath expr="//field[@name='department_id']" position="before">
+                    <field name="direction_id" />
+				</xpath>
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="service_id" />
+				</xpath>
+            </field>
+        </record>
+</odoo>

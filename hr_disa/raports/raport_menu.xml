@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    <record-->
+<!--        string="DISA"-->
+<!--        id="action_raport_hr_disa"-->
+<!--        model="hr.disa"-->
+<!--        report_type="xlsx"-->
+<!--        name="hr_disa.report_hr_disa"-->
+<!--        file="hr_disa.report_hr_disa"-->
+<!--    />-->
+    <record id="action_raport_hr_disa" model="ir.actions.report">
+        <field name="name">DISA</field>
+        <field name="model">hr.disa</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_disa.report_hr_disa</field>
+        <field name="report_file">hr_disa.report_hr_disa</field>
+    </record>
+</odoo>

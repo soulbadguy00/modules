@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_notify_model_all,notify.model all,model_notify_model,base.group_user,1,1,1,1
+access_notify_model_line_all,notify.model.line all,model_notify_model_line,base.group_user,1,1,1,1
+access_notif_line_all,notif.line all,model_notif_line,base.group_user,1,1,1,1
+access_notif_wizard_create,notif.wizard.create_all,model_notif_wizard_create,base.group_user,1,1,1,0

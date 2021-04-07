@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_attestation">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="hr_cnce.doc_layout">
+                       <div class="page" style="font-family: sans-serif;">
+                           <div style="text-align: center; padding:10px 0px 100px 0px; font-family: sans-serif;">
+                               <table style="border-collapse:collapse;bordercolor=#111111; align:center;">
+                                   <tbody>
+                                        <tr>
+                                           <td style="border:none; width:20%;"></td>
+                                           <td style="border:2px solid red;; width:60%; align:center; text-decoration: underline black; text-align:center;padding-top:30px;">
+                                               <t t-if="o.category_contract_id.name == 'STAGE'"> <h2 style="text-decoration: underline black;">ATTESTATION DE <br/>STAGE</h2> </t>
+                                               <t t-if="not o.category_contract_id.name == 'STAGE'"> <h2 style="text-decoration: underline black;">ATTESTATION DE <br/>TRAVAIL</h2> </t>
+                                           </td>
+                                           <td style="border:none; width:20%;"></td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                           <p style="font-size: 21px; font-family: sans-serif;">
+                               Nous, soussignés <span t-field="o.employee_id.company_id.name" />, représentée par Madame <span t-field="o.employee_id.company_id.hr_manager_id.name" />
+                               <span t-field="o.employee_id.company_id.hr_manager_id.first_name" />, attestons que
+                           </p>
+                           <p style="font-size: 21px; font-family: sans-serif;">
+                               Monsieur / Madame <strong><span t-field="o.employee_id.name" /> <span t-field="o.employee_id.first_name" /> </strong>
+                               <t t-if="o.category_contract_id.name == 'STAGE'">a effectué un stage</t>
+                               <t t-if="not o.category_contract_id.name == 'STAGE'">est engagé(e)</t>, au sein de notre structure, en qualité de <strong><span t-field="o.job_id.name" /></strong>,
+                               <t t-if="o.category_contract_id.name == 'STAGE'">
+                                   du <span t-field="o.date_start" t-options='{"widget": "date", "format": "dd MMMM Y"}'/> au <span t-field="o.date_end" t-options='{"widget": "date", "format": "dd MMMM Y"}'/>
+                               </t>
+                               <t t-if="not o.category_contract_id.name == 'STAGE'">depuis le <strong>
+                                   <span t-field="o.date_start" t-options='{"widget": "date", "format": "dd MMMM Y"}'/> </strong>
+                               </t>.
+                           </p>
+                           <p style="font-size: 21px;">
+                               En foi de quoi, la présente Attestation lui est délivrée pour servir et valoir ce que de droit.
+                           </p>
+                           <div class="pull-right" style="font-size: 21px;margin-top: 50px;text-align:center;">
+                               <div style="margin-bottom: 100px;">
+                                   <h5>Fait à Abidjan, le
+                                       <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %B %Y')"/>
+                                   </h5>
+                               </div>
+                               <div style="margin-bottom: 100px;">
+                                   <h5>
+                                       <strong>La Direction Générale</strong>
+                                   </h5>
+                               </div>
+                           </div>
+                       </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="hr_cgrae_list_report">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+			<div class="article">
+				<link href="/hr_payroll_ci/static/src/css/ivoire_payroll.css" rel="stylesheet"/>
+			  	<div class="page">
+					<div class="title">DECLARATION INDIVIDUELLE DES SALAIRES MENSUELS DE L'EXERCICE AVRIL 2020</div>
+					<div>
+						<table>
+							<tr>
+								<td>NOM DE </td>
+								<td><span t-field="o.company_id.name" /></td>
+								<td>BOITE </td>
+								<td><span t-field="o.company_id.zip" /></td>
+								<td>TEL : <span t-field="o.company_id.phone" /> </td>
+							</tr>
+							<tr>
+								<td>MOIS : </td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>N ordre</td>
+								<td>NOM ET PRENOMS</td>
+								<td>Matricule <br/>Fonct. Publ</td>
+								<td>Salaires Bruts <br/>Mensuels </td>
+								<td>Cotisation Mensuel (8.33%)</td>
+								<td>Cotisation Mensuel (14.67%)</td>
+								<td>Total Cotisation</td>
+								<td>OBSERVATION</td>
+							</tr>
+							<t t-foreach="o.line_ids" t-as="line">
+								<tr>
+									<td><span t-field="line.num_order" /> </td>
+									<td><span t-field="line.employee_id.name" /> <span t-field="line.employee_id.first_name" /></td>
+									<td><span t-field="line.employee_id.identification_id" /></td>
+									<td><span t-field="line.amount_brut" /> </td>
+									<td><span t-field="line.amount_cgrae_employe" /> </td>
+									<td><span t-field="line.amount_cgrae_employer" /> </td>
+									<td><span t-field="line.amount_cotisation_total" /> </td>
+									<td><span t-field="line.observation" /></td>
+								</tr>
+							</t>
+							<tr>
+								<td colspan="3">TOTAL</td>
+								<td><span t-field="o.total_base" /> </td>
+									<td><span t-field="o.total_cgrae_employee" /> </td>
+									<td><span t-field="o.total_cgrae_employer" /> </td>
+									<td><span t-esc="(o.total_cgrae_employee + o.total_cgrae_employer)" /> </td>
+									<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<div class="text-left">
+					NB: Ce tableau doit tre obligatoirement tre transmis  la CGRAE (au plus tard le 15 du mois suivant) mme si le paiement des cotisations est diffr
+				</div>
+			</div>
+			</t>
+		</t>
+	</template>
+</odoo>

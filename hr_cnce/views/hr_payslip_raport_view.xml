@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payroll_report_view_tree" model="ir.ui.view">
+        <field name="name">payroll.report.view.tree</field>
+        <field name="model">hr.payroll.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="name" />
+                <field name="direction_id" />
+                <field name="department_id" />
+                <field name="service_id" />
+                <field name="category_id" />
+                <field name="job_id" />
+                <field name="agence_id" />
+                <field name="company_id" invisible="1" />
+                <field name="net" />
+                <field name="brut_imposable" />
+                <field name="brut_total" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="payroll_report_view_pivot" model="ir.ui.view">
+        <field name="name">payroll.report.pivot</field>
+        <field name="model">hr.payroll.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Payroll Analysis" disable_linking="True">
+                <field name="employee_id" />
+                <field name="department_id" type="row"/>
+                <field name="net" type="measure"/>
+                <field name="brut_imposable" type="measure"/>
+                <field name="brut_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="payroll_report_view_graph" model="ir.ui.view">
+        <field name="name">payroll.report.graph</field>
+        <field name="model">hr.payroll.report</field>
+        <field name="arch" type="xml">
+            <graph string="Payroll Analysis" type="line">
+                <field name="date_from" type="row"/>
+                <field name="net" type="measure"/>
+                <field name="brut_imposable" type="measure"/>
+                <field name="brut_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="payroll_report_view_search" model="ir.ui.view">
+        <field name="name">payroll.report.search</field>
+        <field name="model">hr.payroll.report</field>
+        <field name="arch" type="xml">
+            <search string="Payroll Analysis">
+                <field name="company_id" filter_domain="[('company_id', 'ilike', self)]"/>
+                <field name="employee_id" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name="direction_id" filter_domain="[('direction_id', 'ilike', self)]"/>
+                <field name="department_id" filter_domain="[('department_id', 'ilike', self)]"/>
+                <field name="service_id" filter_domain="[('service_id', 'ilike', self)]"/>
+                <field name="agence_id" filter_domain="[('agence_id', 'ilike', self)]"/>
+                <field name="job_id" filter_domain="[('job_id', 'ilike', self)]"/>
+                <field name="category_id" filter_domain="[('category_id', 'ilike', self)]"/>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="date_from"/>
+                <filter string="Last 365 Days Payslip" name="year" domain="[
+                    ('date_from', '>=', (context_today() + relativedelta(days=-365)).strftime('%Y-%m-%d')),
+                    ('date_from', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>
+                    <filter string="Direction" name="direction_id" context="{'group_by':'direction_id'}"/>
+                    <filter string="Departement" name="department_id" context="{'group_by':'department_id'}"/>
+                    <filter string="Service" name="service_id" context="{'group_by':'service_id'}"/>
+                    <filter string="Agence" name="agence_id" context="{'group_by':'agence_id'}"/>
+                    <filter string="Poste occupé" name="job_id" context="{'group_by':'job_id'}"/>
+                    <filter string="Catégorie" name="category_id" context="{'group_by':'category_id'}"/>
+                    <filter string="Company" name="company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="payroll_report_action" model="ir.actions.act_window">
+        <field name="name">Payroll Analysis</field>
+        <field name="res_model">hr.payroll.report</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="search_view_id" ref="payroll_report_view_search"/>
+        <field name="context">{
+            'search_default_year': True
+        }</field>
+        <field name="help">This report performs analysis on your payslip.</field>
+    </record>
+
+    <menuitem id="hr_payroll_raport_view" name="Analyse global de paie" sequence="50" parent="hr_payroll_ci_raport.menu_hr_payroll_rapport"
+            action="payroll_report_action"/>
+</odoo>

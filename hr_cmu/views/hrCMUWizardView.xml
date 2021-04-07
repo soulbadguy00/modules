@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hr_cmu_rapport_form_view">
+            <field name="name">hr_cmu.cmu_rapport.form</field>
+            <field name="model">hr_cmu.cmu_rapport</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="compute" string="Générer le rapport" type="object" />
+                        <button name="export_xls" string="Imprimer le rapport" type="object" />
+                    </header>
+                    <sheet>
+                        <field name="name" required="1"/>
+                        <group col="4">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="company_id"/>
+                        </group>
+                        <notebook>
+                            <page string="lignes">
+                                <field name="line_ids" >
+                                    <tree>
+                                        <field name="num_cnps" />
+                                        <field name="num_cmu" />
+                                        <field name="type" />
+                                        <field name="name" />
+                                        <field name="first_name" />
+                                        <field name="gender" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_cmu_rapport_tree_view">
+            <field name="name">hr_cmu.cmu_rapport.tree_view</field>
+            <field name="model">hr_cmu.cmu_rapport</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" />
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_cmu_rapport_tree_view" model="ir.actions.act_window">
+            <field name="name">Rapport CMU</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_cmu.cmu_rapport</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_cmu_menu" name="Rapports CMU" parent="hr_payroll_ci_raport.menu_hr_payroll_social"
+                action="action_hr_cmu_rapport_tree_view"/>
+    </data>
+</odoo>

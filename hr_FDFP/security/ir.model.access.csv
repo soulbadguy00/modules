@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_fdfp_config_payroll_manager,hr.fdfp.config payroll_manager,model_hr_fdfp_config,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_hr_fdfp_payroll_manager,hr.fdfp payroll_manager,model_hr_fdfp,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_hr_fdfp_line_payroll_manager,hr.fdfp.line payroll_manager,model_hr_fdfp_line,hr_payroll.group_hr_payroll_manager,1,1,1,1

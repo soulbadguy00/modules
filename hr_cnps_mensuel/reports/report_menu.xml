@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+		<record id="hr_cnps_report" model="ir.actions.report">
+            <field name="name">CNPS Mensuel nouveau</field>
+            <field name="model">hr.cnps.monthly</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_cnps_mensuel.cnps_mensuel_report</field>
+            <field name="report_file">hr_cnps_mensuel.cnps_mensuel_report</field>
+        </record>
+
+        <record id="hr_cnps_report_xlsx" model="ir.actions.report">
+            <field name="name">Liste des contributeurs</field>
+            <field name="model">hr.cnps.monthly</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">hr_cnps_mensuel.cnps_mensuel_report_xlsx</field>
+            <field name="report_file">hr_cnps_mensuel.cnps_mensuel_report_xlsx</field>
+        </record>
+
+</odoo>

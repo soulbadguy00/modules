@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hr_contract_cnce_extension_form">
+        <field name="name">hr.contract.form</field>
+        <field name="model">hr.contract</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr_contract_extension.hr_contract_inh_extension_form"/>
+        <field name="arch" type="xml">
+            <field name="notif_ids" position="before">
+                <group col="4">
+                    <field name="date_noty_fin_contract" />
+                    <field name="date_noty_fin_essai" />
+                </group>
+            </field>
+            <field name="notif_ids" position="replace">
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_contract_cnce2_extension_form">
+        <field name="name">hr.contract.form</field>
+        <field name="model">hr.contract</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="category_contract_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_contract.action_hr_contract" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">hr.contract</field>
+        <field name="view_mode">tree,kanban,form,activity</field>
+        <field name="domain">[('employee_id', '!=', False)]</field>
+        <field name="context">{'search_default_current':1, 'search_default_group_by_state': 1}</field>
+        <field name="search_view_id" ref="hr_contract.hr_contract_view_search"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new contract
+          </p>
+        </field>
+    </record>
+
+
+
+        <!-- les catégories de contrats -->
+    <record model="ir.ui.view" id="hr_category_contract_form_view">
+        <field name="name">hr.category.contract.form</field>
+        <field name="model">hr.category.contract</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="name" />
+                        <field name="delai_notif_fin" />
+                        <field name="delai_notif_essai" />
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_category_contract_tree_view">
+        <field name="name">hr.category.contract.tree</field>
+        <field name="model">hr.category.contract</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                    <field name="name" />
+                    <field name="delai_notif_fin" />
+                    <field name="delai_notif_essai" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_hr_category_contract_view">
+        <field name="name">Les catégories de contrats</field>
+        <field name="res_model">hr.category.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hr_category_contract_menu_id" name="Les Catégories de contrats"
+              parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager"
+              action="action_hr_category_contract_view" sequence="198"/>
+</odoo>

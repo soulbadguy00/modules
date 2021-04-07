@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_holidays.group_hr_holidays_user" model="res.groups">
+        <field name="name">Chef de département</field>
+<!--        <field name="category_id" ref="base.module_category_hr_holidays"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]"/>-->
+    </record>
+
+    <record id="group_hr_holidays_director" model="res.groups">
+        <field name="name">Directeur</field>
+<!--        <field name="category_id" ref="base.module_category_hr_holidays"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]"/>-->
+    </record>
+
+    <record id="hr_leave_rule_officer_update" model="ir.rule">
+        <field name="name"></field>
+        <field name="model_id" ref="model_hr_leave"/>
+        <field name="domain_force">['|',
+'|', ('employee_id.user_id', '=', user.id), ('employee_id.parent_id.user_id', '=', user.id),
+'|', '|', ('department_id', '=', False), ('department_id.member_ids.user_id', 'in', [user.id]), ('department_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="False"/>
+        <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]"/>
+    </record>
+
+    <record id="hr_leave_rule_director_update" model="ir.rule">
+        <field name="name"></field>
+        <field name="model_id" ref="model_hr_leave"/>
+        <field name="domain_force">['|',
+'|', ('employee_id.user_id', '=', user.id), ('employee_id.parent_id.user_id', '=', user.id),
+'|', '|', ('department_id', '=', False), ('direction_id.member_ids.user_id', 'in', [user.id]), ('direction_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="False"/>
+        <field name="groups" eval="[(4, ref('hr_cnce.group_hr_holidays_director'))]"/>
+    </record>
+
+    <record id="hr_lmy_holidays_recovery" model="ir.rule">
+        <field name="name">Mes reprises de congés</field>
+        <field name="model_id" ref="model_hr_holidays_recovery"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="hr_holidays_recovery_manager" model="ir.rule">
+        <field name="name">Toutes les reprises de congés</field>
+        <field name="model_id" ref="model_hr_holidays_recovery"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')),(4, ref('hr_cnce.group_hr_holidays_director')),(4, ref('hr_holidays.group_hr_holidays_user'))]"/>
+    </record>
+</odoo>

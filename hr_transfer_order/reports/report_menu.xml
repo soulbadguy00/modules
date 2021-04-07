@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_hr_transfer_order_report" model="ir.actions.report">
+        <field name="name">Ordre de virement</field>
+        <field name="model">hr.tansfer.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_transfer_order.report_transfer_order</field>
+        <field name="report_file">hr_transfer_order.report_transfer_order</field>
+    </record>
+</odoo>

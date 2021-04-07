@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_employee_extension_2_form_view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='nature_employe']" position="before">
+                <field name="payment_method" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_inh_2_form_view">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+            <field name="priority">2</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="piece_identite_id"/>
+                    <field name="num_piece"/>
+                </xpath>
+				<xpath expr="/form/sheet/notebook/page[2]/group[1]/group[2]" position="attributes">
+					<attribute name="string">Citoyenneté et Identification</attribute>
+				</xpath>
+				<xpath expr="/form/sheet/notebook/page[2]/group[1]/group[3]" position="attributes">
+					<attribute name="string">Statut marital</attribute>
+				</xpath>
+            </field>
+    </record>
+
+    <!-- gestion des types de pièces d'identité -->
+		<record model="ir.ui.view" id="hr_employee_nature_piece_form_view">
+			<field name="name">hr.employee.nature_piece.form</field>
+			<field name="model">hr.employee.nature_piece</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group col="4">
+							<field name="name" />
+							<field name="description" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_nature_piece_tree_view">
+			<field name="name">hr.employee.nature_piece.tree</field>
+			<field name="model">hr.employee.nature_piece</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_employee_nature_piece_view">
+			<field name="name">Gestion des types de pièces</field>
+			<field name="res_model">hr.employee.nature_piece</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="hr_type_piece_menu" name="Type de pièces d'identité" parent="hr.menu_human_resources_configuration"
+				  groups="hr.group_hr_manager" action="action_hr_employee_nature_piece_view"  sequence="100"/>
+
+
+</odoo>
