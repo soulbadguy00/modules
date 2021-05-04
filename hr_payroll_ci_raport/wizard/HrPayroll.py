@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-__author__ = 'lekaizen'
+__author__ = 'ropi'
 
 from odoo import fields, models, api, _, tools
 from odoo.exceptions import UserError
@@ -67,6 +67,22 @@ class HrPayroll(models.TransientModel):
                 if isinstance(datas['form'][field], tuple):
                     datas['form'][field] = datas['form'][field][0]
             return rec.env.ref('hr_payroll_ci_raport.payroll_report_xlsx').with_context(data=datas).report_action(rec, data=datas, config=False)
+
+    def export_to_excel(self):
+        """
+        Export payroll to excel
+        __author__
+        :return:
+        """
+        for rec in self:
+            context = rec._context
+            datas = {'ids': context.get('uid', []), 'model': 'hr.payroll.payroll', 'form': rec.read()[0]}
+            for field in datas['form'].keys():
+                if isinstance(datas['form'][field], tuple):
+                    datas['form'][field] = datas['form'][field][0]
+            return rec.env.ref('hr_payroll_ci_raport.payroll_report_xlsx_new').with_context(data=datas).report_action(rec,
+                                                                                                                  data=datas,
+                                                                                                                  config=False)
 
     # def export_xls(self):
     #     print('L72 - nouveau rapport')

@@ -81,4 +81,4 @@ class HrReversePrime(models.TransientModel):
 				rec.code = rec.prime_id.code
 
 
-__author__ = 'lekaizen'
+__author__ = 'ropi'

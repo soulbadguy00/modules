@@ -80,3 +80,53 @@ Stop Odoo service: sudo service odoo-server stop
 Restart Odoo service: sudo service odoo-server restart
 -----------------------------------------------------------
 
+TAF
+1. pagination (4 employés en largeur et par page)
+2. grouper les rubriques (total par rubrique) améliorer avec le bracground et pourquoi des vides parfois
+
+
+Accès SSH / FTP du serveur VPS BIOLAB
+Adresse IP Hôte : 207.180.220.133
+Identifiant : biolabsarl
+Mot de passe : T9g73@nb
+
+URL : https://vmi378116.contaboserver.net:8443/
+login : root
+Mot de passe: MrxE978eBbFdw
+
+Accès Plesk
+Lien: https://vmi378116.contaboserver.net:8443/
+Login: admin
+Mot de passe: T9g73@nb
+
+Accès compte git pour addons enterprise
+Login : christelle.edwin@biolabsarl.ci
+Mot de passe : Biolab@2021
+
+https://biolab.odoo.com/
+
+password postgres: postgres0405@@
+password odoo: Odoo@@Biolab0405
+
+file conf odoo
+[options]
+; This is the password that allows database operations:
+admin_passwd = 8aDZ397s1YQM0asp
+http_port = 8069
+logfile = /var/log/odoo/odoo-server.log
+addons_path=/odoo/enterprise/addons,/odoo/odoo-server/addons
+csv_internal_sep = ,
+db_host = localhost
+db_maxconn = 64
+db_name = False
+db_password = Odoo@@Biolab0405
+db_port = 5432
+db_sslmode = prefer
+db_template = template0
+db_user = odoo
+
+TAF
+install modules custom
+paramétrage
+install ngnix et transformer odoo en site web
+installer le module des rapports selon les modèles transmis et corriger jusqu'àce que cela soit OK

@@ -46,7 +46,8 @@ class ReportHrPayroll(models.AbstractModel):
             if type_employe == 'all':
                 payslips = self.env['hr.payslip'].browse(payslip_ids).sorted(key=lambda r: r.employee_id.name)
             for employee, lines in groupby(payslips, lambda l: l.employee_id):
-                vals = {'NAME': employee.name+' '+employee.first_name, 'type': employee.type}
+                vals = {'NAME': employee.name + ' ' + employee.first_name if employee.first_name else employee.name,
+                        'type': employee.type}
                 slips = list(lines)
                 for rule in self._codes_rules[0]:
                     amount = 0.0
@@ -71,6 +72,65 @@ class ReportHrPayroll(models.AbstractModel):
                 if line[code] is not None:
                     total += line[code]
             res[code] = total
+        return res
+
+    def _lines_new(self, date_from, date_to, company_id, type_employe):
+        res = {}
+        resultats = []
+        _headers = ['NOM ET PRENOMS']
+        rules = self.env['hr.salary.rule'].search([('appears_on_payroll', '=', True)])
+        emp_obj = self.env['hr.employee']
+        date_from = date_from
+        date_to = date_to
+        for rule in rules:
+            _headers.append(rule.name)
+        self._codes_rules[:] = []
+        self._codes_rules.append(rules.mapped(lambda r: r.code))
+        res['codes'] = rules.mapped(lambda r: r.code)
+        res['rules'] = rules
+        res['headers'] = _headers
+        self.env.cr.execute("SELECT id FROM hr_payslip WHERE (date_from between to_date(%s,'yyyy-mm-dd') AND "
+                            "to_date(%s,'yyyy-mm-dd')) AND (date_to between to_date(%s,'yyyy-mm-dd') AND to_date(%s,'yyyy-mm-dd')) AND "
+                            "company_id = %s", (date_from, date_to, date_from, date_to, company_id))
+        payslip_ids = [x[0] for x in self._cr.fetchall()]
+        if payslip_ids:
+            # Trier les employés par type(mensuel, journalier, horaire ou tous les employés
+            if type_employe == 'mensuel':
+                payslips_sorted = self.env['hr.payslip'].browse(payslip_ids).sorted(key=lambda r: r.employee_id.name)
+                payslips = payslips_sorted.filtered(lambda r: r.employee_id.type == 'm')
+            if type_employe == 'journalier':
+                payslips_sorted = self.env['hr.payslip'].browse(payslip_ids).sorted(key=lambda r: r.employee_id.name)
+                payslips = payslips_sorted.filtered(lambda r: r.employee_id.type == 'j')
+            if type_employe == 'horaire':
+                payslips_sorted = self.env['hr.payslip'].browse(payslip_ids).sorted(key=lambda r: r.employee_id.name)
+                payslips = payslips_sorted.filtered(lambda r: r.employee_id.type == 'h')
+            if type_employe == 'all':
+                payslips = self.env['hr.payslip'].browse(payslip_ids).sorted(key=lambda r: r.employee_id.name)
+            print('payslip_ids', payslip_ids)
+            print('len payslip_ids', len(payslip_ids))
+            for employee, lines in groupby(payslips, lambda l: l.employee_id):
+                vals = {
+                    'identification': employee.identification_id,
+                    'analytic_section': 'Administration direction générale',
+                    'category': employee.contract_id.categorie_salariale_id.name if employee.contract_id.categorie_salariale_id else '',
+                    'lastname': employee.name,
+                    'firstname': employee.first_name if employee.first_name else '',
+                    'type': employee.type
+                }
+                slips = list(lines)
+                for rule in self._codes_rules[0]:
+                    amount = 0.0
+                    for slip in slips:
+                        self.env.cr.execute("SELECT SUM(total) FROM hr_payslip_line WHERE slip_id=%s AND code = %s",
+                                            (slip.id, rule))
+                        result = self.env.cr.dictfetchall()
+                        if result and result[0]['sum'] is None:
+                            amount += 0.0
+                        else:
+                            amount += result[0].get('sum')
+                    vals[rule] = amount
+                resultats += [vals]
+        res['lines'] = resultats
         return res
 
     @api.model

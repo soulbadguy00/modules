@@ -102,4 +102,4 @@ class HrReverseContract(models.TransientModel):
             break
 
 
-__author__ = 'lekaizen'
+__author__ = 'ropi'

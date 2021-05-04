@@ -66,4 +66,4 @@ class hr_holidays(models.Model):
 
 
 
-__author__ = 'lekaizen'
+__author__ = 'ropi'
