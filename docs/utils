@@ -129,4 +129,4 @@ TAF
 install modules custom
 paramétrage
 install ngnix et transformer odoo en site web
-installer le module des rapports selon les modèles transmis et corriger jusqu'àce que cela soit OK
+installer le module des rapports selon les modèles transmis et corriger ls erreurs si y en a jusqu'à ce que cela soit OK
