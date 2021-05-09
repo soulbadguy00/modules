@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
+from odoo import fields, models
 
 
-class AccountMove(models.Model):
-    _inherit = "account.move"
+class AccountJournal(models.Model):
+    _inherit = "sale.order"
 
     payment_method = fields.Selection([('espece', 'Espèces'), ('virement', 'Virement bancaire'), ('cheque', 'Chèques')],
                                       string='Moyens de paiement', required=True)
-    expiration_date = fields.Date('Date limite de règlement')
-    cheque_label = fields.Char('Libellé chèque')
