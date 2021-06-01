@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210120\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-02 04:02+0000\n"
-"PO-Revision-Date: 2021-05-02 04:02+0000\n"
+"POT-Creation-Date: 2021-05-10 13:09+0000\n"
+"PO-Revision-Date: 2021-05-10 13:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,10 +26,110 @@ msgid "(object._get_report_base_filename())"
 msgstr ""
 
 #. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                                            Exp:"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                                            Lot:"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                                    Lot: <br/>\n"
+"                                    Exp:"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                            <span>Email: </span>"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                            <span>Mobile: </span>"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<br/>\n"
+"                            <span>Tel: </span>"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
+msgid ""
+"<br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <span>Dated: </span>"
+msgstr ""
+"<br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <span>En date du: </span>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid ""
+"<br/>\n"
+"                        <span>Email: </span>"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid ""
+"<br/>\n"
+"                        <span>Mobile: </span>"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid ""
+"<br/>\n"
+"                        <span>Tel: </span>"
+msgstr ""
+
+#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
 msgid ""
 "<br/>\n"
+"                    <span>Dated : </span>"
+msgstr ""
+"<br/>\n"
 "                    <span>En date du : </span>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.stock_report_delivery_aggregated_move_lines
+msgid ""
+"<br/>\n"
+"                Exp:"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.stock_report_delivery_has_serial_move_line
+msgid ""
+"<br/>\n"
+"            Exp:"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.stock_report_delivery_has_serial_move_line
+msgid ""
+"<br/>\n"
+"            Lot:"
 msgstr ""
 
 #. module: biolab
@@ -57,22 +157,23 @@ msgid ""
 "<span>All items couldn't be shipped, the following items will be shipped as "
 "soon as they become available.</span>"
 msgstr ""
+"<span>Tous les articles n'ont pas pu être expédiés, les articles suivants seront expédiés "
+"dès qu'ils seront disponibles.</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "<span>Date de validité</span>"
-msgstr ""
-
-#. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "<span>Delai de livraison</span>"
-msgstr ""
+msgid "<span>Delivery time</span>"
+msgstr "<span>Date de livraison</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
-#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<span>Description</span>"
 msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
+msgid "<span>Designation</span>"
+msgstr "<span>Désignation</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
@@ -83,26 +184,29 @@ msgstr "<span>Rem.%</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
-#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<span>En date du:</span>"
 msgstr ""
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
-#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<span>Name/Code</span>"
 msgstr "<span>Nom/Code</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "<span>Pro-Forma Invoice # </span>"
-msgstr "<span>Facture pro-forma n° </span>"
+msgid "<span>Object: Pro-Forma Invoice # </span>"
+msgstr "<span>Objet: Facture pro-forma n° </span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<span>Quantity</span>"
 msgstr "<span>Quantité</span>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
+msgid "<span>Reference</span>"
+msgstr "<span>Référence</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_footer_with_content
@@ -123,6 +227,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<span>Unit Price</span>"
 msgstr "<span>Prix unitaire</span>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "<span>Validity date</span>"
+msgstr "<span>Date de validité</span>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
@@ -154,15 +263,17 @@ msgid "<strong>Amount</strong>"
 msgstr "<strong>Montant</strong>"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
-msgid "<strong>Bon de commande </strong>"
-msgstr ""
-
-#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "<strong>Customer Code:</strong>"
 msgstr "<strong>Numéro de client :</strong>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid ""
+"<strong>Customer signature preceded by the words \"Read and approved, good "
+"for agreement\":</strong>"
+msgstr ""
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
@@ -170,9 +281,10 @@ msgid "<strong>Date Req.</strong>"
 msgstr "<strong>Date Demandée.</strong>"
 
 #. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
-msgid "<strong>Description</strong>"
-msgstr ""
+msgid "<strong>Designation</strong>"
+msgstr "<strong>Désignation</strong>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
@@ -204,11 +316,6 @@ msgstr "<strong>Date de la facture :</strong>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
-msgid "<strong>Name/Code</strong>"
-msgstr "<strong>Nom/Code</strong>"
-
-#. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
 msgid "<strong>Order Date:</strong>"
 msgstr "<strong>Date de commande :</strong>"
@@ -219,14 +326,14 @@ msgid "<strong>Order:</strong>"
 msgstr "Ordre:</strong>"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid "<strong>Product</strong>"
-msgstr "<strong>Article</strong>"
-
-#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
 msgid "<strong>Purchase Representative:</strong>"
 msgstr "<strong>Responsable achat:</strong>"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
+msgid "<strong>Purchase order </strong>"
+msgstr "<strong>Bon de Commande </strong>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
@@ -250,14 +357,15 @@ msgid "<strong>Reference:</strong>"
 msgstr "<strong>Référence :</strong>"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "<strong>Salesperson:</strong>"
-msgstr "<strong>Vendeur :</strong>"
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+#: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Référence</strong>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "<strong>Shipping Address:</strong>"
-msgstr "<strong>Adresse de livraison:</strong>"
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Vendeur :</strong>"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
@@ -268,13 +376,6 @@ msgstr "<strong>Date d'expédition:</strong>"
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
 msgid "<strong>Shipping address:</strong>"
 msgstr "<strong>Adresse de livraison :</strong>"
-
-#. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid ""
-"<strong>Signature du client précédée de la mention \"Lu et approuvé, bon "
-"pour accord\":</strong>"
-msgstr ""
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
@@ -301,6 +402,11 @@ msgid "<strong>Taxes</strong>"
 msgstr ""
 
 #. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid "<strong>Temperature</strong>"
+msgstr ""
+
+#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
@@ -324,9 +430,10 @@ msgid "<strong>Your Reference:</strong>"
 msgstr "<strong>Votre référence : </strong>"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid "Bon de livraison"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Amount in letter"
+msgstr "Montant en lettre"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
@@ -346,19 +453,36 @@ msgid "Credit Note"
 msgstr "Avoir"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "Description"
-msgstr ""
-
-#. module: biolab
-#: model:ir.model.fields,field_description:biolab.field_account_move__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid "Customer ref :"
+msgstr "Réf client:"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid "Document parent"
-msgstr ""
+msgid "Dated :"
+msgstr "En date du:"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Dated:"
+msgstr "En date du:"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid "Delivery form"
+msgstr "Bon de livraison"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Designation"
+msgstr "Désignation"
+
+#. module: biolab
+#: model:ir.model.fields,field_description:biolab.field_account_move__display_name
+#: model:ir.model.fields,field_description:biolab.field_product_product__display_name
+#: model:ir.model.fields,field_description:biolab.field_product_template__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
@@ -367,18 +491,14 @@ msgid "Draft Invoice"
 msgstr "Facture en brouillon"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "En date du :"
-msgstr ""
-
-#. module: biolab
 #: model:ir.actions.report,name:biolab.account_invoices_without_header
 msgid "Factures sans entête"
 msgstr ""
 
 #. module: biolab
 #: model:ir.model.fields,field_description:biolab.field_account_move__id
+#: model:ir.model.fields,field_description:biolab.field_product_product__id
+#: model:ir.model.fields,field_description:biolab.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -405,25 +525,15 @@ msgstr "Pièce comptable"
 
 #. module: biolab
 #: model:ir.model.fields,field_description:biolab.field_account_move____last_update
+#: model:ir.model.fields,field_description:biolab.field_product_product____last_update
+#: model:ir.model.fields,field_description:biolab.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid "Lot/Serial Number"
-msgstr "Lot/numéro de série"
-
-#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
-#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
 msgid "Montant en lettre"
 msgstr ""
-
-#. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
-msgid "Name/Code"
-msgstr "Nom/Code"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
@@ -437,10 +547,25 @@ msgid "Paid on"
 msgstr "Payé le"
 
 #. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid "Parent document"
+msgstr "Document source"
+
+#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "Please use the following communication for your payment :"
 msgstr "Merci d'utiliser la communication suivante pour votre paiement:"
+
+#. module: biolab
+#: model:ir.model,name:biolab.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: biolab
+#: model:ir.model,name:biolab.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
@@ -463,13 +588,18 @@ msgid "Quotation #"
 msgstr "Devis N°"
 
 #. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Reference"
+msgstr "Référence"
+
+#. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_purchaseorder_document
 msgid "Request for Quotation #"
 msgstr "Demande pour Devis #"
 
 #. module: biolab
-#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
-msgid "Réf du client :"
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Shipping Address:"
 msgstr ""
 
 #. module: biolab
@@ -483,6 +613,19 @@ msgstr "N° TVA"
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
 msgid "Taxes"
 msgstr ""
+
+#. module: biolab
+#: model:ir.model.fields,field_description:biolab.field_product_product__temperature
+#: model:ir.model.fields,field_description:biolab.field_product_template__temperature
+msgid "Temperature"
+msgstr ""
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+#: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "To the attention of"
+msgstr "À l'attention de"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
@@ -500,6 +643,16 @@ msgstr "Facture fournisseur"
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document_custom
 msgid "Vendor Credit Note"
 msgstr "Avoir de fournisseur"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_delivery_document
+msgid "Your contact:"
+msgstr "Votre contact:"
+
+#. module: biolab
+#: model_terms:ir.ui.view,arch_db:biolab.report_saleorder_document
+msgid "Your referent:"
+msgstr "Votre référent:"
 
 #. module: biolab
 #: model_terms:ir.ui.view,arch_db:biolab.report_invoice_document

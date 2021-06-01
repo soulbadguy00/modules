@@ -99,12 +99,11 @@ Lien: https://vmi378116.contaboserver.net:8443/
 Login: admin
 Mot de passe: T9g73@nb
 
-Accès compte git pour addons enterprise
+Accès compte compte admin Odoo
 Login : christelle.edwin@biolabsarl.ci
 Mot de passe : Biolab@2021
 
-https://biolab.odoo.com/
-
+Accès PostgreSQL
 password postgres: postgres0405@@
 password odoo: Odoo@@Biolab0405
 
@@ -129,4 +128,10 @@ TAF
 install modules custom
 paramétrage
 install ngnix et transformer odoo en site web
+<<<<<<< HEAD
 installer le module des rapports selon les modèles transmis et corriger ls erreurs si y en a jusqu'à ce que cela soit OK
+=======
+installer le module des rapports selon les modèles transmis et corriger jusqu'àce que cela soit OK
+
+https://biolab.odoo.com/
+>>>>>>> a31086b6db0bb0bcbc012047aaa9984da4449e3e

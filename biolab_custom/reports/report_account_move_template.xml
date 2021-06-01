@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="biolab_custom.report_invoice_document">
+            <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)" />
+            <div class="article o_report_layout_clean_biolab">
+                <div class="page" style="font-size: 12px;">
+                    <div class="row">
+                        <div name="invoice_address" class="col-5 ml-auto" style="font-size: 12px; padding-top: 200px; margin-bottom: 50px;">
+                            <div>Date <span t-field="o.invoice_date" /> </div>
+                            <div><strong>BDL <span t-field="o.num_bdl" /> </strong></div>
+                            <div style="margin-bottom: 50px;"><strong>N° PF <span t-field="o.invoice_origin" /> </strong></div>
+                            <strong><span t-field="o.partner_id" /></strong><br/>
+                            A l'attention de <span t-field="o.partner_contact_id.name" />
+                            <div class="mt16" style="font-size: 12px;">
+                                <t t-if="o.partner_id.zip" ><span t-field="o.partner_id.zip"/><br/></t>
+                                <t t-if="o.partner_id.phone" >Tél : <span t-field="o.partner_id.phone"/><br/></t>
+                                <t t-if="o.partner_id.street" ><span t-field="o.partner_id.street"/><br/></t>
+                                <t t-if="o.partner_id.street2" ><span t-field="o.partner_id.street2"/><br/></t>
+                                <t t-if="o.partner_id.city" ><span t-field="o.partner_id.city"/><br/></t>
+                                <t t-if="o.partner_id.country_id" ><span t-field="o.partner_id.country_id.name"/><br/></t>
+                                <t t-if="o.partner_id.vat" >N° CC : <span t-field="o.partner_id.vat"/><br/></t>
+<!--                                <t t-if="o.contact_partner_id"> A l'attention de <span t-field="o.contact_partner_id.name"/></t>-->
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Is there a discount on at least one line? -->
+                    <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+
+		    <table class="table table-sm o_main_table">
+                    	<!-- In case we want to repeat the header, remove "display: table-row-group" -->
+	                <thead style="display: table-row-group;">
+                            <tr style="border-style: none;">
+                                <th name="th_ref" class="text-left" style="width: 5%;">Référence</th>
+                                <th name="th_description" class="text-left" style="width: 30%;">Description</th>
+                                <th name="th_quantity" class="text-right">Quantité</th>
+                                <th name="th_priceunit" class="text-right">Prix unitaire</th>
+                                <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+                                    <span>Disc.%</span>
+                                </th>
+                                <th name="th_taxes" class="text-center">Taxes</th>
+                                <th name="th_subtotal" class="text-right">
+                                    Total HT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
+                                <tr t-att-class="'bg-200 font-weight-bold o_line_section' if l.display_type == 'line_section' else 'font-italic o_line_note' if l.display_type == 'line_note' else ''">
+                                    <td class="text-left">
+                                        <t t-if="l.product_id" >
+                                             <t t-if="l.product_id">
+                                                <span t-field="l.product_id.default_code" />
+                                            </t>
+                                        </t>
+                                    </td>
+                                    <td style="font-size: 12px; text-align: left;">
+                                        <t t-if="l.product_id">
+                                            <span t-field="l.product_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="l.name"/>
+                                        </t>
+                                    </td>
+                                    <td class="text-right" style="font-size: 12px;">
+                                        <span t-esc="int(l.quantity)"/>
+                                    </td>
+                                    <td class="text-right" style="font-size: 12px;">
+                                        <span t-esc="int(l.price_unit)"/>
+                                    </td>
+                                    <td t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="font-size: 12px;">
+                                        <span class="text-nowrap" t-field="line.discount"/>
+                                    </td>
+                                    <td t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_ids))" id="line_tax_ids"/>
+                                    </td>
+                                    <td class="text-right o_price_total" style="font-size: 12px;">
+                                        <span class="text-nowrap" t-field="l.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                        <span class="text-nowrap" t-field="l.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr t-foreach="range(max(5-len(o.invoice_line_ids),0))" t-as="l" style="border-style:none;">
+                                <td t-translation="off">&amp;nbsp;</td>
+                                <td></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td t-if="display_discount" class="text-right"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="clearfix">
+                        <div id="total" class="row">
+                            <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-5 col-md-6'} ml-auto">
+                                <table class="table table-sm" style="page-break-inside: avoid;">
+                                    <tr class="border-black o_subtotal" style="">
+                                        <td style="font-size: 12px;"><strong>Total HT</strong></td>
+                                        <td class="text-right" style="font-size: 12px;">
+                                            <span t-field="o.amount_untaxed"/>
+                                        </td>
+                                    </tr>
+                                    <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                        <tr style="">
+                                            <td style="font-size: 12px;"><span class="text-nowrap" t-esc="amount_by_group[0]"/></td>
+                                            <td class="text-right o_price_total" style="font-size: 12px;">
+                                                <span class="text-nowrap" t-esc="amount_by_group[3]" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr class="border-black o_total">
+                                        <td style="font-size: 12px;"><strong>Total TTC</strong></td>
+                                        <td class="text-right" style="font-size: 12px;">
+                                            <span class="text-nowrap" t-field="o.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 30px;">
+                        <strong>Arrêté la présente facture à la somme de </strong> &amp;nbsp;&amp;nbsp;<span t-field="o.amount_text" /> &amp;nbsp;Francs CFA.
+                    </p>
+                    <div>
+                        <strong>Moyen de règlement :</strong> Chèque, virement bancaire <br/>
+                        <strong>Délai de règlement :</strong> <span t-field="o.invoice_payment_term_id.name" /><br/>
+                        <strong>Date limite de règlement :</strong> <span t-field="o.invoice_date_due" /><br/>
+                        <strong>Libellé du chèque :</strong> <span t-field="o.company_id.name" /><br/>
+                        <strong>Nom de la  banque :</strong> <span t-field="o.partner_bank_id.bank_id.name" /><br/>
+                        <strong>BIC :</strong> <span t-field="o.partner_bank_id.bank_id.bic" /><br/>
+                        <strong>IBAN :</strong> <span t-field="o.partner_bank_id.iban" /><br/>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+        <template id="biolab_custom.report_invoice_document_with_payments" inherit_id="biolab_custom.report_invoice_document" primary="True">
+            <xpath expr="//div[@id='total']/div/table" position="inside">
+                <t t-set="payments_vals" t-value="o._get_payments_vals()"/>
+                <t t-foreach="payments_vals" t-as="payment_vals">
+                    <tr>
+                        <td>
+                            <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']"/></i>
+                        </td>
+                        <td class="text-right">
+                            <span t-esc="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                        </td>
+                    </tr>
+                </t>
+                <t t-if="len(payments_vals) > 0">
+                    <tr class="border-black">
+                        <td><strong>Amount Due</strong></td>
+                        <td class="text-right">
+                             <span t-field="o.residual" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                        </td>
+                    </tr>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="biolab_custom.report_invoice">
+            <t t-set="data_report_margin_top" t-value="15"/>
+            <t t-set="data_report_margin_left" t-value="2"/>
+            <t t-set="data_report_margin_rigth" t-value="2"/>
+            <t t-set="data_report_header_spacing" t-value="2"/>
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="biolab_custom.report_invoice_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="biolab_custom.report_invoice_with_payments">
+            <t t-set="data_report_margin_top" t-value="15"/>
+            <t t-set="data_report_margin_left" t-value="2"/>
+            <t t-set="data_report_margin_rigth" t-value="2"/>
+            <t t-set="data_report_header_spacing" t-value="2"/>
+            <t t-set="data_report_dpi" t-value="110"/>
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="biolab_custom.report_invoice_document_with_payments" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

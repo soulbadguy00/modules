@@ -4,6 +4,43 @@
         <field name="paperformat_id" ref="biolab.paperformat_euro_din"/>
     </record>
 
+    <template id="stock_report_delivery_has_serial_move_line">
+        <td>
+            <span t-field="move_line.product_id.default_code"/>
+        </td>
+        <td>
+            <span t-field="move_line.product_id.name"/><br/>
+            Lot: <span t-field="move_line.lot_id.name"/><br/>
+            Exp:
+        </td>
+        <td>
+            <span t-field="move_line.product_id.temperature"/>
+        </td>
+        <td class="text-center" name="move_line_lot_qty_done">
+            <span t-field="move_line.qty_done"/>
+            <span t-field="move_line.product_uom_id"/>
+        </td>
+    </template>
+
+    <template id="stock_report_delivery_aggregated_move_lines">
+        <tr t-foreach="aggregated_lines" t-as="line">
+            <td>
+                <span t-esc="aggregated_lines[line]['product']['default_code']"/>
+            </td>
+            <td>
+                <span t-esc="aggregated_lines[line]['product']['name']"/><br/>
+                Exp:
+            </td>
+            <td>
+                <span t-esc="aggregated_lines[line]['product']['temperature']"/>
+            </td>
+            <td class="text-center" name="move_line_aggregated_qty_done">
+                <span t-esc="aggregated_lines[line]['qty_done']"/>
+                <span t-esc="aggregated_lines[line]['product_uom']"/>
+            </td>
+        </tr>
+    </template>
+
     <template id="report_delivery_document">
         <t t-call="web.html_container">
             <t t-call="biolab.external_layout_with_header_footer">
@@ -14,32 +51,60 @@
                         <img src="/biolab/static/src/img/logo_biolab.png" style="max-width: 100%; margin-bottom: 10px;"/>
                         <div t-field="o.company_id.partner_id"
                              t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />
+                        <p>
+                            <strong>Your contact: <span t-esc="request.env.user.name"/></strong><br/>
+                            <span>Tel: </span> <span t-esc="request.env.user.partner_id.phone"/><br/>
+                            <span>Mobile: </span> <span t-esc="request.env.user.partner_id.mobile"/><br/>
+                            <span>Email: </span> <span t-esc="request.env.user.partner_id.email"/>
+                        </p>
                     </div>
                     <div class="col-6 offset-2">
-                        <strong>Bon de livraison <span t-esc="o.name"/></strong><br/>
-                        <strong>Document parent  <span t-esc="o.origin"/></strong><br/>
-                        <span>En date du : <span t-esc="o.scheduled_date"/></span><br/>
-                        <span>Réf du client : <span t-esc="o.partner_id.ref"/></span>
+                        <strong>Delivery form <span t-esc="o.name"/></strong><br/>
+                        <strong>Parent document  <span t-esc="o.origin"/></strong><br/>
+                        <span>Dated : <span t-esc="o.scheduled_date"/></span><br/>
+                        <span>Customer ref : <span t-esc="o.partner_id.ref"/></span>
                         <br/><br/>
+                        <p style="margin-bottom: -2px;">
+                            <strong><span t-esc="o.partner_id.name"/></strong>
+                        </p>
+                        To the attention of
+                        <t t-if="o.partner_id.child_ids">
+                            <t t-foreach="o.partner_id.child_ids" t-as="child">
+                                <t t-if="child.type == 'contact'">
+                                    <strong><span t-esc="child.name"/></strong>
+                                </t>
+                            </t>
+                        </t>
                         <t t-if="partner" name="partner_header">
                             <div t-esc="partner"
-                                 t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
-
+                                 t-options='{"widget": "contact", "fields": ["address", "phone"], "no_marker": True, "phone_icons": True}'/>
                         </t>
                     </div>
                 </div>
-
+                <br/>
                 <div class="page">
                     <style>
+                        * {
+                        color: #000000 !important;
+                        }
+
                         table {
                         border-collapse: collapse !important;
                         width: 100% !important;
+                        border-style:none !important;
+                        }
+
+                        table, td, th {
+                        border: 1px solid #000000 !important;
                         }
 
                         td, th {
-                        border: 1px solid #000000 !important;
                         text-align: left !important;
                         padding: 8px !important;
+                        }
+
+                        .table-head {
+                        border-top: 3px solid white !important;
                         }
                     </style>
                     <h2>
@@ -65,18 +130,25 @@
                     <table class="table table-sm" t-if="o.state!='done'" name="stock_move_table">
                         <thead>
                             <tr>
-                                <th name="th_sm_product"><strong>Product</strong></th>
-                                <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                                <th name="th_sm_product" style="border-top: 1px solid black !important;"><strong>Reference</strong></th>
+                                <th name="th_sm_product" style="border-top: 1px solid black !important;"><strong>Designation</strong></th>
+                                <th name="th_sm_product" style="border-top: 1px solid black !important;"><strong>Temperature</strong></th>
+                                <th name="th_sm_quantity" style="border-top: 1px solid black !important;"><strong>Quantity</strong></th>
                             </tr>
                         </thead>
                         <tbody>
                             <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
                             <tr t-foreach="lines" t-as="move">
                                 <td>
-                                    <span t-field="move.product_id"/>
-                                    <p t-if="move.description_picking != move.product_id.name">
-                                        <span t-field="move.description_picking"/>
-                                    </p>
+                                    <span t-field="move.product_id.default_code"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.product_id.name"/><br/>
+                                    Lot: <br/>
+                                    Exp:
+                                </td>
+                                <td>
+                                    <span t-field="move.product_id.temperature"/>
                                 </td>
                                 <td>
                                     <span t-field="move.product_uom_qty"/>
@@ -90,13 +162,10 @@
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_lot_on_delivery_slip"/>
                         <thead>
                             <tr>
-                                <th name="th_sml_product"><strong>Product</strong></th>
-                                <t name="lot_serial" t-if="has_serial_number">
-                                    <th>
-                                        Lot/Serial Number
-                                    </th>
-                                </t>
-                                <th name="th_sml_quantity" class="text-center"><strong>Quantity</strong></th>
+                                <th name="th_sml_product" style="border-top: 1px solid black !important;"><strong>Reference</strong></th>
+                                <th name="th_sml_product" style="border-top: 1px solid black !important;"><strong>Designation</strong></th>
+                                <th name="th_sml_product" style="border-top: 1px solid black !important;"><strong>Temperature</strong></th>
+                                <th name="th_sml_quantity" style="border-top: 1px solid black !important;"><strong>Quantity</strong></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,13 +182,13 @@
                                     <!-- If printing lots/serial numbers => keep products in original lines -->
                                     <t t-if="has_serial_number">
                                         <tr t-foreach="package_move_lines" t-as="move_line">
-                                            <t t-call="stock.stock_report_delivery_has_serial_move_line"/>
+                                            <t t-call="biolab.stock_report_delivery_has_serial_move_line"/>
                                         </tr>
                                     </t>
                                     <!-- If not printing lots/serial numbers => merge lines with same product+description+uom -->
                                     <t t-else="">
                                         <t t-set="aggregated_lines" t-value="package_move_lines._get_aggregated_product_quantities()"/>
-                                        <t t-call="stock.stock_report_delivery_aggregated_move_lines"/>
+                                        <t t-call="biolab.stock_report_delivery_aggregated_move_lines"/>
                                     </t>
                                 </t>
                                 <!-- Make sure we do another section for package-less products if they exist -->
@@ -128,13 +197,13 @@
                                     <t t-call="stock.stock_report_delivery_no_package_section_line" name="no_package_section"/>
                                     <t t-if="has_serial_number">
                                         <tr t-foreach="move_lines" t-as="move_line">
-                                            <t t-call="stock.stock_report_delivery_has_serial_move_line"/>
+                                            <t t-call="biolab.stock_report_delivery_has_serial_move_line"/>
                                         </tr>
                                     </t>
                                     <t t-else="">
                                         <t t-set="aggregated_lines" t-value="move_lines._get_aggregated_product_quantities()"/>
                                         <t t-if="aggregated_lines">
-                                            <t t-call="stock.stock_report_delivery_aggregated_move_lines"/>
+                                            <t t-call="biolab.stock_report_delivery_aggregated_move_lines"/>
                                         </t>
                                     </t>
                                 </t>
@@ -144,13 +213,13 @@
                                 <!-- If printing lots/serial numbers => keep products in original lines -->
                                 <t t-if="has_serial_number">
                                     <tr t-foreach="o.move_line_ids" t-as="move_line">
-                                        <t t-call="stock.stock_report_delivery_has_serial_move_line"/>
+                                        <t t-call="biolab.stock_report_delivery_has_serial_move_line"/>
                                     </tr>
                                 </t>
                                 <!-- If not printing lots/serial numbers => merge lines with same product -->
                                 <t t-else="" name="aggregated_move_lines">
                                     <t t-set="aggregated_lines" t-value="o.move_line_ids._get_aggregated_product_quantities()"/>
-                                    <t t-call="stock.stock_report_delivery_aggregated_move_lines"/>
+                                    <t t-call="biolab.stock_report_delivery_aggregated_move_lines"/>
                                 </t>
                             </t>
                         </tbody>
@@ -163,8 +232,10 @@
                         <table class="table table-sm" name="stock_backorder_table">
                             <thead>
                                 <tr>
-                                    <th name="th_sb_product"><strong>Product</strong></th>
-                                    <th name="th_sb_quantity" class="text-center"><strong>Quantity</strong></th>
+                                    <th name="th_sb_product" style="border-top: 1px solid black !important;"><strong>Reference</strong></th>
+                                    <th name="th_sb_product" style="border-top: 1px solid black !important;"><strong>Designation</strong></th>
+                                    <th name="th_sb_product" style="border-top: 1px solid black !important;"><strong>Temperature</strong></th>
+                                    <th name="th_sb_quantity" class="text-center" style="border-top: 1px solid black !important;"><strong>Quantity</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -172,10 +243,15 @@
                                     <t t-set="bo_lines" t-value="backorder.move_lines.filtered(lambda x: x.product_uom_qty)"/>
                                     <tr t-foreach="bo_lines" t-as="bo_line">
                                         <td>
-                                            <span t-field="bo_line.product_id"/>
-                                            <p t-if="bo_line.description_picking != bo_line.product_id.name">
-                                                <span t-field="bo_line.description_picking"/>
-                                            </p>
+                                            <span t-field="bo_line.product_id.default_code"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="bo_line.product_id.name"/><br/>
+                                            Lot: <span t-field="bo_line.lot_id.name"/><br/>
+                                            Exp:
+                                        </td>
+                                        <td>
+                                            <span t-field="bo_line.product_id.temperature"/>
                                         </td>
                                         <td class="text-center">
                                             <span t-field="bo_line.product_uom_qty"/>
@@ -189,7 +265,7 @@
 
                     <div t-if="o.signature" class="mt32 ml64 mr4" name="signature">
                         <div class="offset-8">
-                            <strong>Signature du client précédée de la mention "Lu et approuvé, bon pour accord":</strong>
+                            <strong>Customer signature preceded by the words "Read and approved, good for agreement":</strong>
                         </div>
                         <div class="offset-8">
                             <img t-att-src="image_data_uri(o.signature)" style="max-height: 4cm; max-width: 8cm;"/>
