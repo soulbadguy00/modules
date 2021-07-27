@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_assets_common_custom_fonts" name="Custom QWeb fonts" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/biolab_custom/static/src/scss/layout_clean.scss"/>
+            <link rel="stylesheet" type="text/css" href="/biolab_custom/static/src/css/report_template_css.css"/>
+        </xpath>
+    </template>
+</odoo>

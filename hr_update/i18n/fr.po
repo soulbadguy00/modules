@@ -808,7 +808,7 @@ msgstr "Père / Mère"
 #. module: hr_update
 #: model_terms:ir.ui.view,arch_db:hr_update.hr_employee_inh_form_view
 msgid "Période de travail"
-msgstr "Père / Mèrec"
+msgstr "Période de travail"
 
 #. module: hr_update
 #: model:ir.model.fields,field_description:hr_update.field_hr_employee__qualification_id

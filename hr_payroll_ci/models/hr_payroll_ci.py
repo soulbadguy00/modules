@@ -129,7 +129,7 @@ class HrPayslip(models.Model):
         anciennete = {}
         for slip in self:
             end_date = fields.Datetime.from_string(slip.date_to)
-            start_date = fields.Datetime.from_string(slip.employee_id.start_date)
+            start_date = fields.Datetime.from_string(slip.employee_id.first_contract_date)
             tmp = relativedelta.relativedelta(end_date, start_date)
 
             slip.update({

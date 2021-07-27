@@ -16,4 +16,10 @@ class AccountMove(models.Model):
     num_bdl = fields.Char("BDL", required=False)
     amount_text = fields.Char("Montant en lettres", compute="_getAmountToText")
     partner_contact_id = fields.Many2one('res.partner', "Contact", domain="[('type', '=', 'ocntact')]")
+    object = fields.Char("Object", required=False, readonly=False)
+
+
+class MaintenanceRequest(models.Model):
+    _inherit = "maintenance.request"
+
 

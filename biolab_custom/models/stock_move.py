@@ -7,9 +7,13 @@ from odoo import api, models, fields, _
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
+    objet = fields.Text('Objet')
+
 
 class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
+
+    date_peremption = fields.Datetime(related='lot_id.expiration_date', compute='_get_date', string='Date de péremption')
 
     def _get_aggregated_product_quantities(self, **kwargs):
         """ Returns a dictionary of products (key = id+name+description+uom) and corresponding values of interest.
@@ -40,3 +44,7 @@ class StockMoveLine(models.Model):
                 aggregated_move_lines[line_key]['qty_done'] += move_line.qty_done
         return aggregated_move_lines
 
+    @api.depends('lot_id')
+    def _get_date(self):
+        for rec in self:
+            rec.date_peremption = rec.lot_id.expiration_date

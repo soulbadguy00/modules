@@ -25,6 +25,11 @@
 
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Votre Commande : <span t-field="o.object" /><br/>
+                        </div>
+                    </div>
 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>

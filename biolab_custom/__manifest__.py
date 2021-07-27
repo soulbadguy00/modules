@@ -8,7 +8,7 @@
     """,
     'category': 'Custom',
     'sequence': 32,
-    'depends': ['base', 'sale_management', 'purchase', 'account', 'stock'],
+    'depends': ['base', 'sale_management', 'purchase', 'account', 'stock', 'delivery'],
     'data': [
         "views/report_css.xml",
         "reports/report_template_view.xml",
@@ -20,6 +20,8 @@
         "views/account_move_view.xml",
         "views/res_partner_view.xml",
         "views/product_view.xml",
+        "views/stock_view.xml",
+        "views/webclient_templates.xml",
     ],
     'qweb': [
     ],

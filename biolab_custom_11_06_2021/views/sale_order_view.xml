@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="ivoire_custom_sale_order_2">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="object" />
+                    <field name="partner_bank_id" />
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="date_end" />
+                    <field name="amount_text" />
+                </xpath>
+            </field>
+         </record>
+    </data>
+</odoo>

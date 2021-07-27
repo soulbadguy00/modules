@@ -160,42 +160,86 @@ class personne_contacted(models.Model):
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
-    _rec_name = 'identification_id'
+    # _rec_name = 'identification_id'
 
-    @api.depends('total_children')
+    #@api.depends('total_children')
     def _get_part_igr(self):
+        result = 0
         for rec in self:
-            result = 0
             if rec.marital:
-                t1 = rec.marital
+                t1 =rec.marital
                 B38 = t1[0]
                 B39 = rec.children
-                # B40 = rec.total_children
+                B40 = rec.enfants_a_charge
 
-                if (B38 == "s") or (B38 == "d"):
-                    if B39 <= 5:
-                        result = 1 + B39 * 0.5
+                if ((B38 == "s") or (B38 == "d")):
+                    if (B39 == 0):
+                        if (B40 != 0):
+                            result = 1.5
+                        else:
+                            result = 1
                     else:
-                        result = 1 + 5 * 0.5
+                        if ((1.5 +  B39 * 0.5) > 5):
+                            result = 5
+                        else:
+                            result = 1.5 + B39 * 0.5
                 else:
-                    if B38 == "m":
-                        if B39 == 0:
+                    if (B38 == "m"):
+                        if (B39 == 0):
                             result = 2
                         else:
-                            if B39 > 5:
-                                result = 2 + 5 * 0.5
+                            if ((2 + 0.5 * B39) > 5):
+                                result = 5
                             else:
-                                result = 2 + B39 * 0.5
+                                result = 2 + 0.5 * B39
                     else:
-                        if B38 == "w":
-                            if B39 == 0:
-                                result = 2
-                            else:
-                                if B39 <= 5:
-                                    result = 2 + B39 * 0.5
+                        if (B38 == "w"):
+                            if (B39 == 0):
+                                if (B40 != 0):
+                                    result = 1.5
                                 else:
-                                    result = 2 + 5 * 0.5
+                                    result = 1
+                            else:
+                                if ((2 + B39 * 0.5) > 5):
+                                    result = 5
+                                else:
+                                    result = 2 + 0.5 * B39
+                        else:
+                            result += 2 + 0.5 * B39
             rec.part_igr = result
+    # def _get_part_igr(self):
+    #     for rec in self:
+    #         result = 0
+    #         if rec.marital:
+    #             t1 = rec.marital
+    #             B38 = t1[0]
+    #             B39 = rec.children
+    #             # B40 = rec.total_children
+    #
+    #             if (B38 == "s") or (B38 == "d"):
+    #                 if B39 <= 5:
+    #                     result = 1 + B39 * 0.5
+    #                 else:
+    #                     result = 1 + 5 * 0.5
+    #             else:
+    #                 if B38 == "m":
+    #                     if B39 == 0:
+    #                         result = 2
+    #                     else:
+    #                         if B39 > 5:
+    #                             result = 2 + 5 * 0.5
+    #                         else:
+    #                             result = 2 + B39 * 0.5
+    #                 else:
+    #                     if B38 == "w":
+    #                         if B39 == 0:
+    #                             result = 2
+    #                         else:
+    #                             if B39 <= 5:
+    #                                 result = 2 + B39 * 0.5
+    #                             else:
+    #                                 result = 2 + 5 * 0.5
+    #         rec.part_igr = result
 
     @api.depends('enfants_ids', 'enfants_a_charge')
     def _compute_children(self):
@@ -260,10 +304,12 @@ class HrEmployee(models.Model):
     presonnes_contacted_ids = fields.One2many('hr.personne.contacted', 'employee_id', 'Personnes à contacter')
     parent_employee_ids = fields.One2many("hr.parent.employe", 'employee_id', 'Les parents')
     recruitment_degree_id = fields.Many2one('hr.employee.degree', "Niveau d'étude")
-    direction_id = fields.Many2one('hr.department', 'Direction', required=False, domain="[('type', '=', 'direction')]")
-    department_id = fields.Many2one('hr.department', 'Departement', required=False,
-                                    domain="[('type', '=', 'department')]")
-    service_id = fields.Many2one('hr.department', 'Service', domain="[('type', '=', 'service')]")
+    #direction_id = fields.Many2one('hr.department', 'Direction', required=False, domain="[('type', '=', 'direction')]")
+    direction_id = fields.Many2one('hr.department', 'Direction', required=False)
+    #department_id = fields.Many2one('hr.department', 'Departement', required=False, domain="[('type', '=', 'department')]")
+    department_id = fields.Many2one('hr.department', 'Departement', required=False)
+    #service_id = fields.Many2one('hr.department', 'Service', domain="[('type', '=', 'service')]")
+    service_id = fields.Many2one('hr.department', 'Service')
     conjoint_name = fields.Char(string="Nom conjoint(e)", groups="hr.group_hr_user")
     conjoint_first_name = fields.Char(string="Prénoms conjoint(e)", groups="hr.group_hr_user")
     conjoint_birthdate = fields.Date(string="Date de naissance du conjoint", groups="hr.group_hr_user")
@@ -301,3 +347,4 @@ class HrStudyLevel(models.Model):
     _description = "Niveau etudes"
 
     name = fields.Char('Niveau etude')
+

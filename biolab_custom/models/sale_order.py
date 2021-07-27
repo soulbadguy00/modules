@@ -20,3 +20,13 @@ class SaleOrder(models.Model):
     partner_bank_id = fields.Many2one('res.partner.bank', string='Recipient Bank', help='Bank Account Number to which'
                     ' the invoice will be paid. A Company bank account if this is a Customer Invoice or Vendor Credit '
                     'Note, otherwise a Partner bank account number.',  check_company=True)
+
+
+class SaleAdvancePaymentInv(models.TransientModel):
+    _inherit = "sale.advance.payment.inv"
+
+    def _prepare_invoice_values(self, order, name, amount, so_line):
+        res = super()._prepare_invoice_values(order, name, amount, so_line)
+        res["object"] = order.object
+        return res
+

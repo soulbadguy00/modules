@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="account_move_customs_view_form">
+			<field name="name">account.move view_form</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+		<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="attrs">{'readonly': False}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="num_bdl" />
+					<field name="amount_text" invisible="1" />
+                </xpath>
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="partner_contact_id" widget="res_partner_many2one"
+						   attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice',
+						   'in_refund', 'out_receipt', 'in_receipt'))]}"/>
+
+				</xpath>
+		<xpath expr="//field[@name='invoice_user_id']" position="before">
+                    <field name="object"/>
+                </xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

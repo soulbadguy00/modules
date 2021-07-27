@@ -28,8 +28,8 @@
             <field name="name">Delivery Slip</field>
             <field name="model">stock.picking</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">biolab_custom.report_deliveryslip</field>
-            <field name="report_file">biolab_custom.report_deliveryslip</field>
+            <field name="report_name">stock.report_deliveryslip</field>
+            <field name="report_file">stock.report_deliveryslip</field>
             <field name="print_report_name">'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)</field>
             <field name="binding_model_id" ref="model_stock_picking"/>
             <field name="binding_type">report</field>

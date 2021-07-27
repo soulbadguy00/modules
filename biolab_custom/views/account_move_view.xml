@@ -6,7 +6,11 @@
 			<field name="model">account.move</field>
 			<field name="inherit_id" ref="account.view_move_form"/>
 			<field name="arch" type="xml">
-                <xpath expr="//field[@name='invoice_date']" position="after">
+<!--				<field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}" placeholder="JRNL/2016/00001"/>-->
+                <xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="attrs">{'readonly': False}</attribute>
+                </xpath>
+				<xpath expr="//field[@name='invoice_date']" position="after">
                     <field name="num_bdl" />
 					<field name="amount_text" invisible="1" />
                 </xpath>
@@ -16,8 +20,10 @@
 						   'in_refund', 'out_receipt', 'in_receipt'))]}"/>
 
 				</xpath>
+				<xpath expr="//field[@name='invoice_user_id']" position="before">
+                    <field name="object"/>
+                </xpath>
 			</field>
 		</record>
-
 	</data>
 </odoo>
